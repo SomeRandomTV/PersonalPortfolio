@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "A.R.A. (Adaptive Real-time Assistant)",
+    "category": "AI/ML",
+    "status": "Early Stages",
+    "description": "Local AI System for Caregivers and their Care Recipients built off AXIOM and AuraLens",
+    "techStack": ["AXIOM", "AuraLens"],
+    "features": [],
+    "github": "",
+    "demo": ""
+  },
+  {
+    "id": 2,
+    "name": "AuraLens",
+    "category": "AI/ML",
+    "status": "Early Stages",
+    "description": "ARA's 'eyes' for client LOCAL behaviour analysis and automated HIPAA Compliant logging",
+    "techStack": ["Python", "OpenCV", "PyTorch", "Scikit-Image"],
+    "features": [],
+    "github": "",
+    "demo": ""
+  },
+  {
+    "id": 3,
+    "name": "Operation: TryEverythingNet",
+    "category": "AI/ML",
+    "status": "Nearly Completed",
+    "description": "Image Denoiser via Traditional/Deep Learning methods. Tries all filterings(sometimes several iterations) to replicate 'clean' image",
+    "techStack": ["Python", "OpenCV", "PyTorch", "Scikit-Image", "Matplotlib"],
+    "features": [],
+    "github": "",
+    "demo": ""
+  },
+  {
+    "id": 4,
+    "name": "MiniShell",
+    "category": "Tools & Infrastructure",
+    "status": "",
+    "description": "Completed",
+    "techStack": ["C Language"],
+    "features": [],
+    "github": "",
+    "demo": ""
+  },
+  {
+    "id": 5,
+    "name": "Lexer/Syntax Parser",
+    "category": "Tools & Infrastructure",
+    "status": "Completed",
+    "description": "Custom Lexical Analyzer and Syntax Parser for a simple programming language",
+    "techStack": ["C Language"],
+    "features": [],
+    "github": "",
+    "demo": ""
+  },
+  {
+    "id": 6,
+    "name": "AXIOM",
+    "category": ["Tools & Infrastructure", "AI/ML"],
+    "status": "ACTIVE",
+    "description": "Subsystem of ARA, the AXIOM(ARA's eXtensible Intent & Orchestration Machine",
+    "techStack": ["Python", "SQLite", "asyncio"],
+    "features": [],
+    "github": "",
+    "demo": ""
+  }
+]

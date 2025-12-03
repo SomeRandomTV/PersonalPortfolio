@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-textPrimary;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Red Industrial Neural Glow Effect */
+  .neural-glow {
+    box-shadow: 0 0 20px rgba(193, 18, 31, 0.3),
+                0 0 40px rgba(193, 18, 31, 0.1);
+  }
+  
+  .neural-glow-hover:hover {
+    box-shadow: 0 0 25px rgba(193, 18, 31, 0.5),
+                0 0 50px rgba(193, 18, 31, 0.2);
+  }
+  
+  /* Metallic texture overlay */
+  .metallic-texture {
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.02) 0px,
+        transparent 1px,
+        transparent 2px,
+        rgba(255, 255, 255, 0.02) 3px
+      );
+  }
+  
+  /* Grid overlay effect */
+  .grid-overlay {
+    background-image: 
+      linear-gradient(rgba(44, 44, 47, 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44, 44, 47, 0.5) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  
+  /* Terminal cursor effect */
+  .terminal-cursor::after {
+    content: '▊';
+    animation: blink 1s infinite;
+    color: #C1121F;
+  }
+  
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+}
