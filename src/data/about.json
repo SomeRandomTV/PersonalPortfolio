@@ -1,0 +1,55 @@
+{
+  "identity": {
+    "name": "Alejandro Rubio",
+    "bio": [
+      "I am a Computer Science Student at Texas Tech University who enjoys building AI systems, experimenting with low-level software,",
+      "and turning ideas into machine code for all to use. I like keeping things practical, creative, and human—whether that’s designing intelligent assistants or exploring how systems really work under the hood.",
+      "When I am not coding, I am melting faces off in my deathcore band Septilith."
+    ],
+    "quote": "'The future is not a river to carry us. It is the ocean in which we drown, if we are not prepared' - Darth Vitiate"
+  },
+  "values": [
+    "Privacy-first engineering",
+    "Local-inference AI systems",
+    "Offensive security mindset"
+  ],
+  "skills": {
+    "AI/ML Systems": [
+      "PyTorch",
+      "TensorFlow",
+      "OpenCV",
+      "Scikit-Learn",
+      "Computer Vision",
+      "Image Processing",
+      "Deep Learning"
+    ],
+    "Cybersecurity": [
+      "Network Security",
+      "Penetration Testing",
+      "Threat Analysis",
+      "Security Auditing"
+    ],
+    "Development": [
+      "Python",
+      "C/C++",
+      "Java",
+      "Git"
+    ],
+    "Tools & Platforms": [
+      "Linux",
+      "Docker",
+      "SQLite",
+      "Vite",
+      "Tailwind CSS"
+    ]
+  },
+  "experience": [
+    {
+      "title": "AI/ML Tech Researcher",
+      "organization": "AndGo Inc.",
+      "period": "June-August 2024",
+      "location": "Tokyo Japan",
+      "description": "balls"
+    }
+  ]
+}

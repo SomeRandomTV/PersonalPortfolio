@@ -1,0 +1,229 @@
+{
+  "ara": {
+    "overview": "A.R.A. (Adaptive Real-time Assistant) is a privacy-first AI system designed to assist caregivers in monitoring and supporting their care recipients through local-inference machine learning pipelines. Built on top of AXIOM orchestration engine and AuraLens computer vision system, A.R.A. provides real-time assistance without compromising patient privacy. \nNOTE: A.R.A. is still in its earliest stages with research being done on AuraLens and Phase 1 done of AXIOM.",
+    "problem": "Traditional caregiver monitoring systems rely on cloud-based processing, raising significant HIPAA compliance concerns and privacy issues. On top of that, Caregivers are left with hours of paperwork to do and not enough 1-on-1 with their recepients. Caregivers need real-time alerts for falls, emotional distress, angerous situations and automated workflows to ease the stress, but existing solutions compromise patient data security and autonomy.",
+    "motivation": "Create a fully local AI assistant that processes sensitive health data on-device, ensuring HIPAA compliance while providing caregivers with actionable insights through computer vision and natural language understanding.",
+    "architecture": {
+      "description": "A.R.A. uses a modular architecture with three core components: AXIOM for intent orchestration, AuraLens for visual processing, and a local LLM for natural language interaction.",
+      "components": [
+        "AXIOM - Intent orchestration engine",
+        "AuraLens - Stereo vision processing pipeline",
+        "Local LLM - Privacy-preserving language model",
+        "SQLite - Local state management",
+        "AsyncIO - Concurrent task handling"
+      ]
+    },
+    "keyFeatures": [
+      "100% local inference - No cloud dependencies",
+      "Real-time fall detection via stereo cameras(planned)",
+      "Emotion recognition through facial analysis(planned)",
+      "Voice-activated commands with local speech processing",
+      "HIPAA-compliant automated logging(Planned)"
+    ],
+    "technologies": ["Python", "PyTorch", "OpenCV", "spaCy", "SQLite", "asyncio", "Ollama"],
+    "challenges": [
+      {
+        "challenge": "Real-time inference on consumer hardware",
+        "solution": "Still in Prototype ~10ms"
+      },
+      {
+        "challenge": "HIPAA compliance without cloud storage",
+        "solution": "Fully local processing pipeline with encrypted local storage and audit trails"
+      },
+      {
+        "challenge": "Multi-modal data fusion (vision + audio + text)",
+        "solution": "AXIOM orchestration layer coordinates async processing across modalities"
+      }
+    ],
+    "screenshots": [],
+    "links": {
+      "github": "Private Repo (For now)",
+      "docs": "",
+      "demo": ""
+    }
+  },
+  "auralens": {
+    "overview": "AuraLens is a stereo camera-based computer vision system in active research that will serve as the visual processing engine for A.R.A. Currently researching real-time analysis techniques for patient behavior monitoring, including fall detection, emotional state recognition, and dangerous situation identification with low latency and high accuracy.",
+    "problem": "Traditional fall detection systems use wearable sensors that patients often forget or refuse to wear. Camera-based systems invade privacy or require cloud processing. A balance was needed between effectiveness and privacy.",
+    "motivation": "Develop a non-invasive, privacy-preserving vision system that can detect critical events (falls, distress) in real-time while operating entirely on local hardware.",
+    "architecture": {
+      "description": "AuraLens will use a dual-camera setup for depth perception, processing frames through a multi-stage pipeline: preprocessing, feature extraction, classification, and event detection. Currently in research phase exploring optimal architectures.",
+      "components": [
+        "Stereo Camera Input - Depth perception via dual cameras",
+        "Preprocessing Pipeline - Noise reduction and normalization",
+        "Pose Estimation - Real-time skeleton tracking",
+        "Fall Detection - Geometric analysis of pose changes",
+        "Emotion Recognition - Facial feature analysis",
+        "Event Logger - HIPAA-compliant activity logging"
+      ]
+    },
+    "keyFeatures": [
+      "Stereo vision for accurate depth perception",
+      "Privacy-preserving: processes locally, no cloud uploads",
+      "Multi-class emotion detection via facial analysis",
+      "Dangerous situation recognition (fire, weapons, sharp objects)",
+      "Automated HIPAA-compliant event logging"
+    ],
+    "technologies": ["Python", "OpenCV", "PyTorch", "Scikit-Image", "NumPy"],
+    "challenges": [
+      {
+        "challenge": "Low-latency inference on CPU",
+        "solution": "Model optimization through quantization, achieving <50ms processing time"
+      },
+      {
+        "challenge": "Handling variable lighting conditions",
+        "solution": "Adaptive preprocessing pipeline with histogram equalization and noise reduction"
+      },
+      {
+        "challenge": "Privacy concerns with video monitoring",
+        "solution": "Edge processing only - no video storage, only anonymized event logs"
+      }
+    ],
+    "screenshots": [],
+    "links": {
+      "github": "Private Repo (For now)",
+      "docs": "",
+      "demo": ""
+    }
+  },
+  "try-everything-net": {
+    "overview": "Operation: TryEverythingNet is an experimental image denoising system that combines traditional image processing techniques with deep learning to restore clean images from noisy inputs. The system intelligently tries multiple filtering methods and learns which combinations work best for different noise patterns.",
+    "problem": "Image denoising typically requires knowing the noise type in advance. Real-world images often contain multiple types of noise (Gaussian, salt-and-pepper, speckle), making traditional single-filter approaches ineffective.",
+    "motivation": "Create an adaptive denoising system that can handle unknown noise types by intelligently combining traditional filters with deep learning, learning from trial-and-error which approaches work best.",
+    "architecture": {
+      "description": "Hybrid pipeline combining traditional image processing filters with a deep learning model that learns to select and combine denoising strategies based on image characteristics.",
+      "components": [
+        "Noise Analysis - Characterize noise patterns",
+        "Traditional Filters - Gaussian, Median, Bilateral, NLM",
+        "Deep Learning Model - CNN-based denoiser",
+        "Strategy Selector - Learns optimal filter combinations",
+        "Iterative Refinement - Multi-pass denoising"
+      ]
+    },
+    "keyFeatures": [
+      "Hybrid traditional + deep learning approach",
+      "Adaptive strategy selection based on noise characteristics",
+      "Iterative refinement for severe noise",
+      "Supports multiple noise types simultaneously",
+      "Preserves edges and fine details",
+      "Real-time performance on GPU"
+    ],
+    "technologies": ["Python", "OpenCV", "PyTorch", "Scikit-Image", "Matplotlib", "NumPy"],
+    "challenges": [
+      {
+        "challenge": "Preserving image details while removing noise",
+        "solution": "Multi-scale processing and edge-aware filtering techniques"
+      },
+      {
+        "challenge": "Handling mixed noise types",
+        "solution": "Adaptive filter selection based on local noise characteristics"
+      },
+      {
+        "challenge": "Real-time performance requirements",
+        "solution": "GPU-accelerated processing and optimized filter implementations"
+      }
+    ],
+    "screenshots": [],
+    "links": {
+      "github": "https://github.com/Raf-360/ImageProcessingProject5",
+      "docs": "",
+      "demo": ""
+    }
+  },
+  "axiom": {
+    "overview": "AXIOM (ARA's eXtensible Intent & Orchestration Machine) is the core runtime and orchestration engine for the A.R.A. system. Phase 1 delivers a fully functional virtual assistant with speech/text interaction, event-driven architecture, and privacy-first local inference. Built on Python asyncio with SQLite persistence, AXIOM provides the foundation for future healthcare AI capabilities while maintaining complete data locality.",
+    "problem": "Traditional virtual assistants rely on cloud processing, creating privacy concerns and latency issues for sensitive healthcare applications. Caregivers need a conversational AI assistant that processes everything locally while maintaining extensibility for future sensor integration and compliance requirements. Building a system that balances real-time responsiveness, privacy, and future scalability is technically challenging.",
+    "motivation": "Create a privacy-first virtual assistant runtime that serves as the foundation for ARA's healthcare applications. Phase 1 establishes core conversational capabilities, event-driven architecture, and persistent state management—all processing locally without cloud dependencies. This foundation enables future phases to add computer vision, sensor integration, and HIPAA compliance while maintaining architectural integrity.",
+    "architecture": {
+      "description": "Event-driven pub/sub architecture with modular components. Uses Python asyncio for concurrent processing, SQLite for local state persistence, Ollama for LLM inference, and Whisper for speech recognition. Components communicate via a central event bus, enabling loose coupling and future extensibility.",
+      "components": [
+        "Virtual Assistant (VA) - Dialog management and intent detection",
+        "System Bus - Pub/sub event routing and component coordination",
+        "State Store - SQLite-backed conversation logging and persistence",
+        "Policy Engine - Guardrails and compliance framework (stub)",
+        "Console Interface - CLI REPL for user interaction",
+        "Speech Integration - Whisper ASR and TTS engines"
+      ]
+    },
+    "keyFeatures": [
+      "100% local processing - No cloud dependencies",
+      "Speech and text input via Whisper ASR",
+      "Event-driven pub/sub architecture for component communication",
+      "SQLite conversation logging with full history persistence",
+      "Rule-based intent detection (expandable to ML)",
+      "Cross-platform CLI interface (Linux, macOS, Windows)",
+      "Sub-500ms input processing latency",
+      "Modular architecture ready for sensor/vision integration"
+    ],
+    "technologies": ["Python 3.10+", "asyncio", "SQLite", "Ollama", "Whisper", "Coqui TTS"],
+    "challenges": [
+      {
+        "challenge": "Maintaining <500ms response time with local LLM inference",
+        "solution": "Asyncio event loop with non-blocking I/O, optimized Ollama model selection, and intelligent prompt caching"
+      },
+      {
+        "challenge": "Designing extensible architecture for unknown future requirements",
+        "solution": "Event-driven pub/sub pattern with plugin-ready interfaces, allowing new components to subscribe without core modifications"
+      },
+      {
+        "challenge": "Ensuring conversation state consistency across async operations",
+        "solution": "SQLite with atomic transactions and session-based logging, preventing race conditions during concurrent events"
+      },
+      {
+        "challenge": "Privacy-first design without sacrificing functionality",
+        "solution": "All data processing occurs locally using Ollama and Whisper, zero network calls during normal operation, encrypted local storage"
+      }
+    ],
+    "screenshots": [],
+    "links": {
+      "github": "Private Repo (For now)",
+      "docs": "",
+      "demo": ""
+    }
+  },
+  "Eidos": {
+    "overview": "A custom compiler for my custom Eidos language.",
+    "problem": "Parsing structured text is a fundamental computer science problem. Building a parser from scratch provides deep understanding of formal languages, DSA, compilation theory.",
+    "motivation": "Understand how compilers work by implementing the frontend stages: lexical analysis and syntax parsing with proper error handling, and later, semantic analysis and code generation.",
+    "architecture": {
+      "description": "Two-stage pipeline: lexer converts character stream to tokens, parser validates syntax against grammar rules and builds parse tree.",
+      "components": [
+        "Lexer - Character stream tokenization",
+        "Token Buffer - Efficient token storage",
+        "Parser - Recursive descent parsing",
+        "Grammar Rules - Language syntax definitions",
+        "Error Handler - Syntax error reporting",
+        "AST Builder - Abstract syntax tree construction"
+      ]
+    },
+    "keyFeatures": [
+      "Multi-character token recognition",
+      "Whitespace handling",
+      "Syntax validation against grammar",
+      "Detailed error messages with line numbers",
+      "AST generation for semantic analysis",
+      "Support for nested structures",
+      "Simple IO via print() + read()",
+      "Simple arithmetic operations via +, -, *, /, ++",
+      "Control flow via for + while loops and if-else statements",
+      "Logical Comparisons via <,>, <=, >=, ==, !="
+    ],
+    "technologies": ["C Language", "Formal Grammar Theory"],
+    "challenges": [
+      {
+        "challenge": "Efficient token lookahead without backtracking",
+        "solution": "Single-character buffer with peek functionality"
+      },
+      {
+        "challenge": "Clear error messages for syntax violations",
+        "solution": "Line/column tracking with context-aware error reporting"
+      }
+    ],
+    "screenshots": [],
+    "links": {
+      "github": "https://github.com/SomeRandomTV/Eidos",
+      "docs": "",
+      "demo": ""
+    }
+  }
+}

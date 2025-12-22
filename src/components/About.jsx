@@ -1,19 +1,9 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import aboutData from '../data/about.json'
 
 const About = () => {
-  const skills = {
-    'AI/ML Systems': [],
-    'Cybersecurity': [],
-    'Development': [],
-    'Tools & Platforms': [],
-  }
-
-  const values = [
-    'Privacy-first engineering',
-    'Local-inference AI systems',
-    'Offensive security mindset',
-  ]
+  const { identity, skills, values, experience } = aboutData
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -52,19 +42,23 @@ const About = () => {
             <motion.div variants={itemVariants} className="space-y-6">
               <div className="bg-card border border-border p-8 rounded-lg">
                 <h3 className="text-2xl font-bold text-textPrimary mb-4">
-                  <span className="text-primary font-mono">[ID]</span> 
+                  <span className="text-primary font-mono">[ID]</span> {identity.name}
                 </h3>
                 
                 <div className="space-y-4 text-textSecondary leading-relaxed">
-                  <p>
-                    
-                  </p>
-                  
-                  <div className="border-l-2 border-primary pl-4 my-6">
-                    <p className="text-textPrimary italic">
-                      
+                  {identity.bio.map((paragraph, index) => (
+                    <p key={index}>
+                      {paragraph}
                     </p>
-                  </div>
+                  ))}
+                  
+                  {identity.quote && (
+                    <div className="border-l-2 border-primary pl-4 my-6">
+                      <p className="text-textPrimary italic">
+                        {identity.quote}
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 {/* Core Values */}
@@ -106,7 +100,7 @@ const About = () => {
                           items.map((skill, skillIndex) => (
                             <motion.span
                               key={skillIndex}
-                              whileHover={{ scale: 1.05, boxShadow: '0 0 15px rgba(193, 18, 31, 0.3)' }}
+                              whileHover={{ scale: 1.05, boxShadow: '0 0 15px rgba(255, 215, 0, 0.3)' }}
                               className="px-3 py-1.5 bg-surface border border-primary/30 text-textSecondary text-sm rounded hover:border-primary hover:text-textPrimary transition-all duration-200 cursor-default"
                             >
                               {skill}
@@ -123,15 +117,30 @@ const About = () => {
                 </div>
               </div>
 
-              {/* Optional: Experience Timeline placeholder */}
+              {/* Experience Timeline */}
               <div className="bg-card border border-border p-8 rounded-lg">
                 <h3 className="text-2xl font-bold text-textPrimary mb-6">
                   <span className="text-primary font-mono">[EXPERIENCE]</span>
                 </h3>
-                <div className="space-y-4 text-textMuted">
-                  <p className="text-sm italic">
-                    Experience timeline to be added
-                  </p>
+                <div className="space-y-4">
+                  {experience.length > 0 && experience[0].title ? (
+                    experience.map((exp, index) => (
+                      <div key={index} className="border-l-2 border-primary/30 pl-4">
+                        <h4 className="text-textPrimary font-semibold">{exp.title}</h4>
+                        <p className="text-primary text-sm font-mono">{exp.organization}</p>
+                        <div className="flex items-center gap-2 text-textMuted text-xs mb-2">
+                          {exp.period && <span>{exp.period}</span>}
+                          {exp.period && exp.location && <span>•</span>}
+                          {exp.location && <span>{exp.location}</span>}
+                        </div>
+                        <p className="text-textSecondary text-sm">{exp.description}</p>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-textMuted text-sm italic">
+                      Experience timeline to be added
+                    </p>
+                  )}
                 </div>
               </div>
             </motion.div>

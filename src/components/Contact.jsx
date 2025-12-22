@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import contactData from '../data/contact.json'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -36,22 +37,16 @@ const Contact = () => {
   const contactMethods = [
     { 
       label: 'Email', 
-      value: '', 
+      value: contactData.email, 
       icon: 'email',
-      link: ''
+      link: `mailto:${contactData.email}`
     },
-    { 
-      label: 'GitHub', 
-      value: '', 
-      icon: 'github',
-      link: ''
-    },
-    { 
-      label: 'LinkedIn', 
-      value: '', 
-      icon: 'linkedin',
-      link: ''
-    }
+    ...contactData.socials.map(social => ({
+      label: social.name,
+      value: social.name,
+      icon: social.icon,
+      link: social.url
+    }))
   ]
 
   const renderIcon = (iconName) => {

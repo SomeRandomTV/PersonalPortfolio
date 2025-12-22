@@ -1,0 +1,21 @@
+{
+  "email": "alejoserubio@gmail.com",
+  "socials": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/SomeRandomTV",
+      "icon": "github"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/alejandro-rubio-320a67225/",
+      "icon": "linkedin"
+    },
+    {
+      "name": "Instagram",
+      "url": "https://twitter.com/yourusername",
+      "icon": "twitter"
+    }
+  ],
+  "message": "Open to collaboration on AI/ML and Computer Vision projects. Feel free to reach out for project discussions or opportunities."
+}

@@ -126,7 +126,7 @@ const Hero = () => {
             transition={{ delay: 0.2 }}
             className="mb-6 font-mono text-primary text-sm tracking-wider"
           >
-            [ SYSTEM ONLINE ]
+            [ VISION SYSTEMS ACTIVE ]
           </motion.div>
 
           {/* Main Headline */}
@@ -136,9 +136,9 @@ const Hero = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
           >
-            <span className="text-textPrimary"></span>
+            <span className="text-textPrimary">Building Intelligence</span>
             <br />
-            <span className="text-primary neural-glow"></span>
+            <span className="text-primary neural-glow">Through Vision</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -148,7 +148,7 @@ const Hero = () => {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-xl md:text-2xl text-textSecondary mb-4 font-light"
           >
-            
+            TTU Student and Computer Vision Researcher
           </motion.p>
 
           {/* Identity Statement */}
@@ -158,7 +158,8 @@ const Hero = () => {
             transition={{ delay: 0.7, duration: 0.8 }}
             className="text-base md:text-lg text-textMuted mb-12 max-w-3xl mx-auto"
           >
-            
+            Transforming pixels into insights. Specializing in computer vision systems, 
+            image processing pipelines, and AI-driven visual analysis.
           </motion.p>
 
           {/* CTA Buttons */}

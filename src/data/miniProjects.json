@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Template-Based Card Recognition",
+    "category": ["Image Processing", "Computer Vision"],
+    "description": "Traditional Methods to automatically isolate Rank + Suit and then classify them. The user can either upload from file or capture the image from webcam. It is Rotation-Invarient but not Scale-Invarient",
+    "techStack": ["Python", "Open-CV"],
+    "status": "Completed",
+    "github": "https://github.com/SomeRandomTV/Image-Processing-Project-4",
+    "demo": ""
+  },
+  {
+    "id": 2,
+    "name": "Frequency Filtering Pattern Extraction",
+    "category": "Image Processing",
+    "description": "Extracts hidden periodic patterns from microscope images using Fourier Transform frequency analysis. By filtering out noise frequencies and isolating the dominant peaks in the frequency domain, the algorithm reveals subtle repeating structures nearly invisible to the naked eye.",
+    "techStack": ["Python", "Open-CV"],
+    "status": "Completed",
+    "github": "https://github.com/SomeRandomTV/ImageProcessing-Project3",
+    "demo": ""
+  }
+]

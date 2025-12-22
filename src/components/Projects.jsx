@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import projectsData from '../data/projects.json'
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All Projects')
   const [projects, setProjects] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     setProjects(projectsData)
@@ -13,6 +15,8 @@ const Projects = () => {
   const filters = [
     'All Projects',
     'AI/ML',
+    'Computer Vision',
+    'Image Processing',
     'Tools & Infrastructure',
     'Open Source'
   ]
@@ -54,7 +58,7 @@ const Projects = () => {
           </h2>
           <div className="h-1 w-24 bg-primary neural-glow" />
           <p className="mt-6 text-textSecondary max-w-3xl">
-            Intelligence-grade technical briefings on AI systems, cybersecurity infrastructure, and engineering projects.
+            Technical case studies on computer vision systems, image processing pipelines, and AI/ML engineering projects.
           </p>
         </motion.div>
 
@@ -100,6 +104,7 @@ const Projects = () => {
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -5, boxShadow: '0 0 30px rgba(193, 18, 31, 0.2)' }}
                 className="bg-card border border-border rounded-lg p-6 hover:border-primary transition-all duration-300 cursor-pointer group"
+                onClick={() => navigate(`/project/${project.slug}`)}
               >
                 {/* Status Badge */}
                 {project.status && (
