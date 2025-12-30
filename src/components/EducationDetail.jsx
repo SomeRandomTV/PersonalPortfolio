@@ -78,12 +78,9 @@ const EducationDetail = () => {
               {[
                 'Data Structures & Algorithms',
                 'Computer Architecture',
-                'Operating Systems',
-                'Database Management Systems',
                 'Software Engineering',
-                'Artificial Intelligence',
-                'Machine Learning',
-                'Computer Networks'
+                'Image Processing',
+                'Cyber-Aerial Computing'
               ].map((course, i) => (
                 <motion.div
                   key={i}
