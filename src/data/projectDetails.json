@@ -158,8 +158,11 @@
     "technologies": ["Python 3.10+", "asyncio", "SQLite", "Ollama", "Whisper", "Coqui TTS"],
     "challenges": [
       {
-        "challenge": "Maintaining <500ms response time with local LLM inference",
-        "solution": "Asyncio event loop with non-blocking I/O, optimized Ollama model selection, and intelligent prompt caching"
+        "challenge": "Maintaining <500ms response time with local LLM inference(Longer messages longer processing times)",
+        "solution": [
+                      "Asyncio event loop with non-blocking I/O, optimized Ollama model selection, and intelligent prompt caching.",
+                      "Another thing, this will be hard to do, but stream the LLM and TTS response, going to have to get low level here."
+                    ]
       },
       {
         "challenge": "Designing extensible architecture for unknown future requirements",
@@ -181,7 +184,7 @@
       "demo": ""
     }
   },
-  "Eidos": {
+  "eidos": {
     "overview": "A custom compiler for my custom Eidos language.",
     "problem": "Parsing structured text is a fundamental computer science problem. Building a parser from scratch provides deep understanding of formal languages, DSA, compilation theory.",
     "motivation": "Understand how compilers work by implementing the frontend stages: lexical analysis and syntax parsing with proper error handling, and later, semantic analysis and code generation.",

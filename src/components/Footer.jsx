@@ -36,17 +36,17 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-surface border-t border-border mt-20">
-      <div className="container mx-auto px-6 py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer className="bg-surface border-t border-border mt-32">
+      <div className="container mx-auto px-6 py-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Copyright */}
-          <div className="text-textMuted text-sm">
-            <p>© {currentYear} <span className="text-textSecondary font-medium">Red Industrial Neural</span>. All rights reserved.</p>
-            <p className="mt-1 font-mono text-xs">Built with React + Vite + Tailwind CSS</p>
+          <div className="text-textMuted text-sm font-light">
+            <p className="tracking-wide">© {currentYear} <span className="text-primary">Executive Portfolio</span>. All rights reserved.</p>
+            <p className="mt-2 text-xs tracking-luxury-wide uppercase">Crafted with Precision</p>
           </div>
 
           {/* Social Links */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
             {socialLinks.map((link) => (
               <motion.a
                 key={link.name}
@@ -55,7 +55,8 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="text-textSecondary hover:text-primary transition-colors duration-200"
+                transition={{ duration: 0.3 }}
+                className="text-textSecondary hover:text-primary transition-all duration-400"
                 aria-label={link.name}
               >
                 {renderIcon(link.icon)}
@@ -64,10 +65,10 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Optional: Privacy/Terms links */}
-        <div className="mt-6 pt-6 border-t border-border/50 text-center">
-          <p className="text-textMuted text-xs font-mono">
-            Privacy-first engineering • Local-inference AI • Offensive security mindset
+        {/* Tagline */}
+        <div className="mt-10 pt-10 border-t border-border/30 text-center">
+          <p className="text-textMuted text-xs font-light tracking-luxury-wide uppercase">
+            Where Innovation Meets Elegance
           </p>
         </div>
       </div>

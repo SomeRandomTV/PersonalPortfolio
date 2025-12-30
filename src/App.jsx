@@ -8,10 +8,15 @@ import MiniProjects from './components/MiniProjects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ProjectDetail from './components/ProjectDetail'
+import EidosDetail from './components/EidosDetail'
+import TryEverythingNetDetail from './components/TryEverythingNetDetail'
+import AxiomDetail from './components/AxiomDetail'
 
 function App() {
   return (
     <div className="min-h-screen bg-background">
+      {/* Sophisticated Background Pattern */}
+      <div className="luxury-bg-pattern" />
       <Header />
       <Routes>
         <Route path="/" element={
@@ -23,6 +28,9 @@ function App() {
             <Contact />
           </main>
         } />
+        <Route path="/project/eidos" element={<EidosDetail />} />
+        <Route path="/project/try-everything-net" element={<TryEverythingNetDetail />} />
+        <Route path="/project/axiom" element={<AxiomDetail />} />
         <Route path="/project/:slug" element={<ProjectDetail />} />
       </Routes>
       <Footer />

@@ -67,9 +67,26 @@ const Hero = () => {
         }
       }
     }
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x
+          const dy = particles[i].y - particles[j].y
+          const distance = Math.sqrt(dx * dx + dy * dy)
+
+          if (distance < connectionDistance) {
+            ctx.beginPath()
+            ctx.strokeStyle = `rgba(193, 18, 31, ${1 - distance / connectionDistance * 0.5})`
+            ctx.lineWidth = 0.5
+            ctx.moveTo(particles[i].x, particles[i].y)
+            ctx.lineTo(particles[j].x, particles[j].y)
+            ctx.stroke()
+          }
+        }
+      }
+    }
 
     function animate() {
-      ctx.fillStyle = 'rgba(13, 13, 13, 0.08)'
+      ctx.fillStyle = 'rgba(10, 10, 11, 0.1)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       particles.forEach(particle => {
@@ -101,96 +118,110 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Elegant Background Canvas */}
+      {/* Animated Background Canvas */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 z-0"
       />
 
-      {/* Gentle Radial Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] z-0">
-        <div className="w-full h-full rounded-full bg-gradient-radial from-primary/8 via-primary/3 to-transparent gentle-pulse" />
-      </div>
+      {/* Grid Overlay */}
+      <div className="absolute inset-0 z-0 grid-overlay opacity-20" />
+
+      {/* Metallic Texture */}
+      <div className="absolute inset-0 z-0 metallic-texture" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 py-32">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
           className="max-w-5xl mx-auto text-center"
         >
-          {/* Sophisticated Tagline */}
+          {/* Glitch Effect Text */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="mb-8 text-primary text-sm tracking-luxury-wide uppercase font-light"
+            transition={{ delay: 0.2 }}
+            className="mb-6 font-mono text-primary text-sm tracking-wider"
           >
-            Undergrad: Senior
+            [ VISION SYSTEMS ACTIVE ]
           </motion.div>
 
-          {/* Main Headline with Gold Gradient */}
+          {/* Main Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 1 }}
-            className="text-6xl md:text-7xl lg:text-8xl font-thin mb-8 leading-tight tracking-luxury-wide"
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
           >
-            <span className="gradient-gold-text uppercase">Alejandro Rubio</span>
+            <span className="text-textPrimary">Building Intelligence</span>
+            <br />
+            <span className="text-primary neural-glow">Through Vision</span>
           </motion.h1>
 
-          {/* Refined Subheadline */}
+          {/* Subheadline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="text-xl md:text-2xl text-textSecondary mb-4 font-light"
+          >
+            TTU Student and Computer Vision Researcher
+          </motion.p>
+
+          {/* Identity Statement */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-lg md:text-xl text-textSecondary mb-6 font-light max-w-3xl mx-auto leading-loose"
+            className="text-base md:text-lg text-textMuted mb-12 max-w-3xl mx-auto"
           >
-            What happened in the last several years? Don't know? Welp, heres what I got.
+            Transforming pixels into insights. Specializing in computer vision systems, 
+            image processing pipelines, and AI-driven visual analysis.
           </motion.p>
 
-          {/* Elegant Separator */}
-          <motion.div
-            initial={{ opacity: 0, width: 0 }}
-            animate={{ opacity: 1, width: '120px' }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-            className="h-px mx-auto mb-12"
-            style={{ background: 'linear-gradient(90deg, transparent, #c9a961, transparent)' }}
-          />
-
-          {/* CTA Button - Luxury Style */}
+          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1, duration: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6"
+            transition={{ delay: 0.9, duration: 0.8 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(193, 18, 31, 0.5)' }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection('projects')}
-              className="luxury-button"
+              className="px-8 py-4 bg-primary hover:bg-secondary text-textPrimary font-semibold rounded-lg transition-all duration-300 neural-glow-hover w-full sm:w-auto"
             >
-              Explore Work
+              View Projects
+            </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => scrollToSection('contact')}
+              className="px-8 py-4 bg-transparent border-2 border-primary hover:bg-primary/10 text-textPrimary font-semibold rounded-lg transition-all duration-300 w-full sm:w-auto"
+            >
+              Get In Touch
             </motion.button>
           </motion.div>
 
-          {/* Scroll Indicator - Refined */}
+          {/* Scroll Indicator */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 1, repeat: Infinity, repeatType: 'reverse' }}
-            className="mt-24"
+            transition={{ delay: 1.2, duration: 1, repeat: Infinity, repeatType: 'reverse' }}
+            className="mt-20"
           >
             <div className="flex flex-col items-center text-textMuted">
-              <span className="text-xs font-light tracking-luxury-wide uppercase mb-3">Scroll</span>
+              <span className="text-sm font-mono mb-2">SCROLL TO EXPLORE</span>
               <svg
-                className="w-5 h-5"
+                className="w-6 h-6 animate-bounce"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth="1"
+                strokeWidth="2"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >

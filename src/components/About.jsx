@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import aboutData from '../data/about.json'
 
 const About = () => {
-  const { identity, skills, values, experience } = aboutData
+  const { identity, skills, values, experience, education } = aboutData
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -21,7 +21,7 @@ const About = () => {
   }
 
   return (
-    <section id="about" className="py-20 bg-surface">
+    <section id="about" className="py-32 bg-surface">
       <div className="container mx-auto px-6">
         <motion.div
           initial="hidden"
@@ -29,23 +29,22 @@ const About = () => {
           viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
         >
-          {/* Section Header */}
-          <motion.div variants={itemVariants} className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-textPrimary mb-4">
-              About <span className="text-primary">/ System Overview</span>
+          {/* Section Header - Luxury Style */}
+          <motion.div variants={itemVariants} className="mb-20 text-center">
+            <h2 className="section-title-luxury gradient-gold-text">
+              Profile
             </h2>
-            <div className="h-1 w-24 bg-primary neural-glow" />
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Left Column - Bio & Philosophy */}
-            <motion.div variants={itemVariants} className="space-y-6">
-              <div className="bg-card border border-border p-8 rounded-lg">
-                <h3 className="text-2xl font-bold text-textPrimary mb-4">
-                  <span className="text-primary font-mono">[ID]</span> {identity.name}
+            <motion.div variants={itemVariants} className="space-y-8">
+              <div className="luxury-card p-8">
+                <h3 className="text-2xl font-light text-textPrimary mb-8 tracking-luxury uppercase">
+                  {identity.name}
                 </h3>
                 
-                <div className="space-y-4 text-textSecondary leading-relaxed">
+                <div className="space-y-6 text-textSecondary leading-loose font-light text-base">
                   {identity.bio.map((paragraph, index) => (
                     <p key={index}>
                       {paragraph}
@@ -53,8 +52,8 @@ const About = () => {
                   ))}
                   
                   {identity.quote && (
-                    <div className="border-l-2 border-primary pl-4 my-6">
-                      <p className="text-textPrimary italic">
+                    <div className="border-l border-primary pl-6 my-8">
+                      <p className="text-textPrimary italic font-light text-lg">
                         {identity.quote}
                       </p>
                     </div>
@@ -62,19 +61,20 @@ const About = () => {
                 </div>
 
                 {/* Core Values */}
-                <div className="mt-8">
-                  <h4 className="text-lg font-semibold text-textPrimary mb-4 font-mono">
-                    <span className="text-primary">&gt;</span> Core Principles
+                <div className="mt-10">
+                  <h4 className="text-base font-light text-primary mb-6 tracking-luxury-wide uppercase">
+                    Core Principles
                   </h4>
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     {values.map((value, index) => (
                       <motion.div
                         key={index}
                         whileHover={{ x: 5 }}
-                        className="flex items-center gap-3 text-textSecondary group cursor-default"
+                        transition={{ duration: 0.3 }}
+                        className="flex items-center gap-4 text-textSecondary font-light group cursor-default"
                       >
-                        <span className="text-primary group-hover:text-neural transition-colors">▸</span>
-                        <span className="group-hover:text-textPrimary transition-colors">{value}</span>
+                        <span className="text-primary group-hover:text-secondary transition-all duration-400">—</span>
+                        <span className="group-hover:text-textPrimary transition-all duration-400">{value}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -83,31 +83,32 @@ const About = () => {
             </motion.div>
 
             {/* Right Column - Skills Matrix */}
-            <motion.div variants={itemVariants} className="space-y-6">
-              <div className="bg-card border border-border p-8 rounded-lg">
-                <h3 className="text-2xl font-bold text-textPrimary mb-6">
-                  <span className="text-primary font-mono">[SKILLS_MATRIX]</span>
+            <motion.div variants={itemVariants} className="space-y-8">
+              <div className="luxury-card p-8">
+                <h3 className="text-2xl font-light text-textPrimary mb-10 tracking-luxury uppercase">
+                  Expertise
                 </h3>
 
-                <div className="space-y-6">
+                <div className="space-y-8">
                   {Object.entries(skills).map(([category, items], categoryIndex) => (
                     <div key={categoryIndex}>
-                      <h4 className="text-sm font-semibold text-primary mb-3 font-mono uppercase tracking-wider">
+                      <h4 className="text-xs font-light text-primary mb-4 tracking-luxury-wide uppercase">
                         {category}
                       </h4>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-3">
                         {items.length > 0 ? (
                           items.map((skill, skillIndex) => (
                             <motion.span
                               key={skillIndex}
-                              whileHover={{ scale: 1.05, boxShadow: '0 0 15px rgba(255, 215, 0, 0.3)' }}
-                              className="px-3 py-1.5 bg-surface border border-primary/30 text-textSecondary text-sm rounded hover:border-primary hover:text-textPrimary transition-all duration-200 cursor-default"
+                              whileHover={{ scale: 1.05, borderColor: 'rgba(201, 169, 97, 0.6)' }}
+                              transition={{ duration: 0.3 }}
+                              className="px-4 py-2 bg-surface/50 border border-primary/20 text-textSecondary text-xs rounded hover:text-textPrimary transition-all duration-400 cursor-default font-light tracking-wide"
                             >
                               {skill}
                             </motion.span>
                           ))
                         ) : (
-                          <span className="text-textMuted text-sm italic">
+                          <span className="text-textMuted text-sm italic font-light">
                             [Skills to be added]
                           </span>
                         )}
@@ -118,27 +119,58 @@ const About = () => {
               </div>
 
               {/* Experience Timeline */}
-              <div className="bg-card border border-border p-8 rounded-lg">
-                <h3 className="text-2xl font-bold text-textPrimary mb-6">
-                  <span className="text-primary font-mono">[EXPERIENCE]</span>
+              <div className="luxury-card p-8">
+                <h3 className="text-2xl font-light text-textPrimary mb-10 tracking-luxury uppercase">
+                  Experience
                 </h3>
-                <div className="space-y-4">
+                <div className="space-y-6">
                   {experience.length > 0 && experience[0].title ? (
                     experience.map((exp, index) => (
-                      <div key={index} className="border-l-2 border-primary/30 pl-4">
-                        <h4 className="text-textPrimary font-semibold">{exp.title}</h4>
-                        <p className="text-primary text-sm font-mono">{exp.organization}</p>
-                        <div className="flex items-center gap-2 text-textMuted text-xs mb-2">
+                      <div key={index} className="border-l border-primary/30 pl-6">
+                        <h4 className="text-textPrimary font-light text-lg">{exp.title}</h4>
+                        <p className="text-primary text-sm tracking-wide mt-1">{exp.organization}</p>
+                        <div className="flex items-center gap-2 text-textMuted text-xs mb-3 mt-2 font-light">
                           {exp.period && <span>{exp.period}</span>}
                           {exp.period && exp.location && <span>•</span>}
                           {exp.location && <span>{exp.location}</span>}
                         </div>
-                        <p className="text-textSecondary text-sm">{exp.description}</p>
+                        <p className="text-textSecondary text-sm font-light leading-relaxed">{exp.description}</p>
                       </div>
                     ))
                   ) : (
-                    <p className="text-textMuted text-sm italic">
+                    <p className="text-textMuted text-sm italic font-light">
                       Experience timeline to be added
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {/* Education Timeline */}
+              <div className="luxury-card p-8">
+                <h3 className="text-2xl font-light text-textPrimary mb-10 tracking-luxury uppercase">
+                  Education
+                </h3>
+                <div className="space-y-6">
+                  {education && education.length > 0 ? (
+                    education.map((edu, index) => (
+                      <div key={index} className="border-l border-secondary/30 pl-6">
+                        <h4 className="text-textPrimary font-light text-lg">{edu.degree}</h4>
+                        <p className="text-secondary text-sm tracking-wide mt-1">{edu.institution}</p>
+                        <div className="flex items-center gap-2 text-textMuted text-xs mb-3 mt-2 font-light">
+                          {edu.period && <span>{edu.period}</span>}
+                          {edu.period && edu.location && <span>•</span>}
+                          {edu.location && <span>{edu.location}</span>}
+                        </div>
+                        {edu.focus && (
+                          <p className="text-textSecondary text-sm font-light leading-relaxed">
+                            Focus: {edu.focus}
+                          </p>
+                        )}
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-textMuted text-sm italic font-light">
+                      Education timeline to be added
                     </p>
                   )}
                 </div>

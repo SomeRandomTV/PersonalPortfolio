@@ -51,46 +51,38 @@ const Header = () => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-surface/95 backdrop-blur-md border-b border-border shadow-lg' 
+          ? 'frosted-glass border-b border-border' 
           : 'bg-transparent'
       }`}
     >
-      <nav className="container mx-auto px-6 py-4">
+      <nav className="container mx-auto px-12 py-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold font-mono cursor-pointer"
-            onClick={() => scrollToSection('home')}
+          {/* Luxury Logo */}
+          <motion.a
+            href="https://www.ziatechnica.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.02 }}
+            className="text-xl font-light tracking-luxury-wide cursor-pointer uppercase"
           >
-            <span className="text-textPrimary">&lt;</span>
-            <span className="text-primary">RIN</span>
-            <span className="text-textPrimary">/&gt;</span>
-          </motion.div>
+            <span className="gradient-luxury-text">ZiaTechnica</span>
+          </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-14">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative text-sm font-medium transition-colors duration-200 ${
+                className={`relative text-sm font-light tracking-luxury uppercase transition-all duration-400 luxury-underline ${
                   activeSection === item.id
                     ? 'text-primary'
-                    : 'text-textSecondary hover:text-textPrimary'
+                    : 'text-silver hover:text-primary'
                 }`}
               >
                 {item.label}
-                {activeSection === item.id && (
-                  <motion.div
-                    layoutId="activeSection"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
-                    initial={false}
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
               </button>
             ))}
           </div>
@@ -98,15 +90,15 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-textPrimary hover:text-primary transition-colors"
+            className="md:hidden text-textPrimary hover:text-primary transition-all duration-400"
             aria-label="Toggle menu"
           >
             <svg
-              className="w-6 h-6"
+              className="w-5 h-5"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth="2"
+              strokeWidth="1"
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
@@ -125,16 +117,17 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden mt-4 py-4 border-t border-border"
+            transition={{ duration: 0.4 }}
+            className="md:hidden mt-6 py-6 border-t border-border"
           >
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left py-3 px-4 transition-colors ${
+                className={`block w-full text-left py-4 px-4 transition-all duration-400 uppercase tracking-luxury text-sm font-light ${
                   activeSection === item.id
-                    ? 'text-primary bg-primary/10'
-                    : 'text-textSecondary hover:text-textPrimary hover:bg-surface'
+                    ? 'text-primary'
+                    : 'text-silver hover:text-primary'
                 }`}
               >
                 {item.label}

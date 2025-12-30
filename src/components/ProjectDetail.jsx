@@ -205,7 +205,7 @@ const Section = ({ title, children }) => (
     className="mb-12"
   >
     <h2 className="text-2xl md:text-3xl font-bold text-textPrimary mb-6">
-      <span className="text-primary font-mono">[{title.toUpperCase()}]</span>
+      <span className="animated-gradient font-mono">[{title.toUpperCase()}]</span>
     </h2>
     {children}
   </motion.section>

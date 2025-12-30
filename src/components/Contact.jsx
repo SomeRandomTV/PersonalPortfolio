@@ -75,39 +75,37 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-20 bg-surface">
+    <section id="contact" className="py-32 bg-surface">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
+          transition={{ duration: 0.8 }}
+          className="max-w-5xl mx-auto"
         >
-          {/* Section Header */}
-          <div className="mb-16 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-textPrimary mb-4">
-              Contact <span className="text-primary">/ Secure Channel</span>
+          {/* Section Header - Luxury Style */}
+          <div className="mb-20 text-center">
+            <h2 className="section-title-luxury gradient-gold-text">
+              Connect
             </h2>
-            <div className="h-1 w-24 bg-primary neural-glow mx-auto" />
-            <p className="mt-6 text-textSecondary">
-              
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Methods */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-6"
+              transition={{ duration: 0.6 }}
+              className="space-y-8"
             >
-              <div className="bg-card border border-border p-8 rounded-lg">
-                <h3 className="text-xl font-bold text-textPrimary mb-6 font-mono">
-                  <span className="text-primary">[COMMUNICATION_CHANNELS]</span>
+              <div className="luxury-card p-10">
+                <h3 className="text-xl font-light text-textPrimary mb-8 tracking-luxury uppercase">
+                  Get In Touch
                 </h3>
                 
-                <div className="space-y-4">
+                <div className="space-y-6">
                   {contactMethods.map((method, index) => (
                     <motion.a
                       key={index}
@@ -115,14 +113,15 @@ const Contact = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ x: 5 }}
-                      className="flex items-center gap-4 p-4 bg-surface border border-border rounded hover:border-primary transition-all duration-200 group"
+                      transition={{ duration: 0.3 }}
+                      className="flex items-center gap-5 p-5 bg-surface/30 border border-border hover:border-primary transition-all duration-400 group"
                     >
-                      <div className="text-primary group-hover:text-neural transition-colors">
+                      <div className="text-primary group-hover:text-secondary transition-all duration-400">
                         {renderIcon(method.icon)}
                       </div>
                       <div>
-                        <div className="text-sm text-textMuted font-mono">{method.label}</div>
-                        <div className="text-textSecondary group-hover:text-textPrimary transition-colors">
+                        <div className="text-xs text-textMuted font-light tracking-wide uppercase mb-1">{method.label}</div>
+                        <div className="text-textSecondary group-hover:text-textPrimary transition-all duration-400 font-light">
                           {method.value || '[To be added]'}
                         </div>
                       </div>
@@ -137,15 +136,16 @@ const Contact = () => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
-              <div className="bg-card border border-border p-8 rounded-lg">
-                <h3 className="text-xl font-bold text-textPrimary mb-6 font-mono">
-                  <span className="text-primary">[MESSAGE_TRANSMISSION]</span>
+              <div className="luxury-card p-8">
+                <h3 className="text-xl font-light text-textPrimary mb-8 tracking-luxury uppercase">
+                  Send Message
                 </h3>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-mono text-textSecondary mb-2">
+                    <label htmlFor="name" className="block text-xs font-light text-textSecondary mb-3 tracking-wide uppercase">
                       Name
                     </label>
                     <input
@@ -155,13 +155,13 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-surface border border-border rounded text-textPrimary focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all font-mono"
-                      placeholder="Enter your name"
+                      className="w-full px-4 py-4 bg-surface/50 border border-border text-textPrimary focus:border-primary focus:outline-none transition-all duration-400 font-light"
+                      placeholder="Your name"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-mono text-textSecondary mb-2">
+                    <label htmlFor="email" className="block text-xs font-light text-textSecondary mb-3 tracking-wide uppercase">
                       Email
                     </label>
                     <input
@@ -171,13 +171,13 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-surface border border-border rounded text-textPrimary focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all font-mono"
-                      placeholder="your.email@domain.com"
+                      className="w-full px-4 py-4 bg-surface/50 border border-border text-textPrimary focus:border-primary focus:outline-none transition-all duration-400 font-light"
+                      placeholder="your@email.com"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-mono text-textSecondary mb-2">
+                    <label htmlFor="message" className="block text-xs font-light text-textSecondary mb-3 tracking-wide uppercase">
                       Message
                     </label>
                     <textarea
@@ -187,8 +187,8 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       rows="5"
-                      className="w-full px-4 py-3 bg-surface border border-border rounded text-textPrimary focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all font-mono resize-none"
-                      placeholder="Type your message here..."
+                      className="w-full px-4 py-4 bg-surface/50 border border-border text-textPrimary focus:border-primary focus:outline-none transition-all duration-400 font-light resize-none"
+                      placeholder="Your message..."
                     />
                   </div>
 
@@ -196,9 +196,9 @@ const Contact = () => {
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="p-4 bg-green-500/10 border border-green-500 rounded text-green-500 text-sm font-mono"
+                      className="p-4 bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-light"
                     >
-                      [MESSAGE TRANSMITTED SUCCESSFULLY]
+                      Message sent successfully
                     </motion.div>
                   )}
 
@@ -207,9 +207,9 @@ const Contact = () => {
                     disabled={isSubmitting}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full px-6 py-3 bg-primary hover:bg-secondary text-textPrimary font-semibold rounded transition-all duration-200 neural-glow-hover disabled:opacity-50 disabled:cursor-not-allowed font-mono"
+                    className="luxury-button w-full disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {isSubmitting ? '[TRANSMITTING...]' : 'TRANSMIT MESSAGE'}
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </motion.button>
                 </form>
               </div>

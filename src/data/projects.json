@@ -49,14 +49,14 @@
   },
   {
     "id": 5,
-    "name": "Eidos Compiler",
-    "category": "Tools & Infrastructure",
-    "status": "Phase 1 Complete",
+    "name": "Eidos",
+    "category": ["Tools & Infrastructure", "Open Source"],
+    "status": "Active",
     "description": "Custom Lexical Analyzer and Syntax Parser for a simple, custom programming language",
     "techStack": ["C Language"],
     "features": ["Simple IO", "Simple Arithmetic", "Simple CTRL Flow & Logical Operations"],
     "github": "https://github.com/SomeRandomTV/Eidos",
     "demo": "",
-    "slug": "Eidos"
+    "slug": "eidos"
   }
 ]

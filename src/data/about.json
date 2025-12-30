@@ -2,16 +2,21 @@
   "identity": {
     "name": "Alejandro Rubio",
     "bio": [
-      "I am a Computer Science Student at Texas Tech University who enjoys building AI systems, experimenting with low-level software,",
-      "and turning ideas into machine code for all to use. I like keeping things practical, creative, and human—whether that’s designing intelligent assistants or exploring how systems really work under the hood.",
-      "When I am not coding, I am melting faces off in my deathcore band Septilith."
+      "I am a Computer Science Student at Texas Tech University who enjoys building AI systems and experimenting with low-level software.",
+      "Currently my focus is in Computer Vision, AI/ML, and Low-Level Systems Programming and have gathered a team of students to work on a startup, ZIATECHNICA and our Flagship Project A.R.A.",
+      "My career in C.S. thus far hasn't always been at T.T.U. No, in fact the earliest I can attribute the start to my path started in Eunice, New Mexico(2015) when visiting my brother in the summer where he made me learn HTML.",
+      "I continued to code here and there until my senior year at Lake Arthur High School(2020-2021), my hometown still in N.M. where I graduated and decided to study Computer Science at the New Mexico Military Institute (N.M.M.I.)",
+      "One and a half years later (Fall 2022) I graduated and transferred to T.T.U in the Spring of 2023 where unfortunately ~30 of my 65 credits transferred. That was a kick in the stomach but, it is here at T.T.U. that my appetite for C.S. has increased exponentially.", 
+      "In the last several months I worked day/night and deepend my interests in Image Processing/Computer Vision systems and low level systems engineering for real-time behaviour analysis.",
+      "Despite my work/classes and my part time job taking up most of my time, I will pick up my guitar and melt people's faces of with my deathcore band Septilith."
     ],
     "quote": "'The future is not a river to carry us. It is the ocean in which we drown, if we are not prepared' - Darth Vitiate"
   },
   "values": [
     "Privacy-first engineering",
     "Local-inference AI systems",
-    "Offensive security mindset"
+    "Offensive security mindset",
+    "Decentralized AI Infra"
   ],
   "skills": {
     "AI/ML Systems": [
@@ -23,24 +28,24 @@
       "Image Processing",
       "Deep Learning"
     ],
-    "Cybersecurity": [
-      "Network Security",
-      "Penetration Testing",
-      "Threat Analysis",
-      "Security Auditing"
+    "Data Handling": [
+      "Pandas",
+      "Numpy",
+      "Matplotlib",
+      "jupyter"
     ],
     "Development": [
       "Python",
       "C/C++",
-      "Java",
+      "Rust",
       "Git"
     ],
     "Tools & Platforms": [
       "Linux",
       "Docker",
-      "SQLite",
-      "Vite",
-      "Tailwind CSS"
+      "SQL(ite)",
+      "NoSQL", 
+      "Regex"
     ]
   },
   "experience": [
@@ -49,7 +54,23 @@
       "organization": "AndGo Inc.",
       "period": "June-August 2024",
       "location": "Tokyo Japan",
-      "description": "balls"
+      "description": "Researched cutting-edge AI/ML advancements and collaborated with R&D teams to prototype and integrate innovative models into proprietary products."
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.S. Computer Science",
+      "institution": "Texas Tech University",
+      "period": "2023 - Present",
+      "location": "Lubbock, TX",
+      "focus": "Computer Vision, AI/ML, Low-Level Systems Programming"
+    },
+    {
+      "degree": "Associate Degree",
+      "institution": "New Mexico Military Institute",
+      "period": "2021 - 2022",
+      "location": "Roswell, NM",
+      "focus": "Computer Science Fundamentals"
     }
   ]
 }
