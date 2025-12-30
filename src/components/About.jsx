@@ -1,9 +1,11 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import aboutData from '../data/about.json'
 
 const About = () => {
   const { identity, skills, values, experience, education } = aboutData
+  const navigate = useNavigate()
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -119,10 +121,17 @@ const About = () => {
               </div>
 
               {/* Experience Timeline */}
-              <div className="luxury-card p-8">
-                <h3 className="text-2xl font-light text-textPrimary mb-10 tracking-luxury uppercase">
-                  Experience
-                </h3>
+              <motion.div
+                whileHover={{ y: -3 }}
+                onClick={() => navigate('/experience')}
+                className="luxury-card p-8 cursor-pointer hover:border-primary/50 transition-all duration-300"
+              >
+                <div className="flex items-center justify-between mb-10">
+                  <h3 className="text-2xl font-light text-textPrimary tracking-luxury uppercase">
+                    Experience
+                  </h3>
+                  <span className="text-primary text-xl">→</span>
+                </div>
                 <div className="space-y-6">
                   {experience.length > 0 && experience[0].title ? (
                     experience.map((exp, index) => (
@@ -143,13 +152,20 @@ const About = () => {
                     </p>
                   )}
                 </div>
-              </div>
+              </motion.div>
 
               {/* Education Timeline */}
-              <div className="luxury-card p-8">
-                <h3 className="text-2xl font-light text-textPrimary mb-10 tracking-luxury uppercase">
-                  Education
-                </h3>
+              <motion.div
+                whileHover={{ y: -3 }}
+                onClick={() => navigate('/education')}
+                className="luxury-card p-8 cursor-pointer hover:border-secondary/50 transition-all duration-300"
+              >
+                <div className="flex items-center justify-between mb-10">
+                  <h3 className="text-2xl font-light text-textPrimary tracking-luxury uppercase">
+                    Education
+                  </h3>
+                  <span className="text-secondary text-xl">→</span>
+                </div>
                 <div className="space-y-6">
                   {education && education.length > 0 ? (
                     education.map((edu, index) => (
@@ -174,7 +190,7 @@ const About = () => {
                     </p>
                   )}
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </motion.div>

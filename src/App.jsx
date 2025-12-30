@@ -11,6 +11,8 @@ import ProjectDetail from './components/ProjectDetail'
 import EidosDetail from './components/EidosDetail'
 import TryEverythingNetDetail from './components/TryEverythingNetDetail'
 import AxiomDetail from './components/AxiomDetail'
+import ExperienceDetail from './components/ExperienceDetail'
+import EducationDetail from './components/EducationDetail'
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
         <Route path="/project/eidos" element={<EidosDetail />} />
         <Route path="/project/try-everything-net" element={<TryEverythingNetDetail />} />
         <Route path="/project/axiom" element={<AxiomDetail />} />
+        <Route path="/experience" element={<ExperienceDetail />} />
+        <Route path="/education" element={<EducationDetail />} />
         <Route path="/project/:slug" element={<ProjectDetail />} />
       </Routes>
       <Footer />
