@@ -83,21 +83,22 @@ const Koi = ({
     return direction
   }, [direction])
 
-  const chosenVariant = useMemo(() => {
-    if (variant === 'random') return pick(Object.keys(VARIANTS))
-    return variant
-  }, [variant])
+  // Don't memoize variant — pick a fresh one each time this component mounts
+  const chosenVariant = variant === 'random' ? pick(Object.keys(VARIANTS)) : variant
 
   const cfg = VARIANTS[chosenVariant] || VARIANTS.classic
+
+  // Calculate scaleX based on direction (flip for left-to-right)
+  const scaleX = chosenDirection === 'left-to-right' ? -1 : 1
 
   const svgRef = useRef(null)
   const visualRef = useRef(null)
   useKoiOcclusionManager(instanceId, svgRef, visualRef)
 
-  // randomize vertical position if not provided (vh -> px)
+  // randomize vertical position if not provided (vh -> px, full 0-100vh range)
   const [baseY, setBaseY] = useState(() => {
     if (typeof y === 'number') return y
-    return null
+    return Math.random() * 100 // 0-100vh
   })
 
   // seed wobble parameters
@@ -203,7 +204,7 @@ const Koi = ({
         wob += Math.sin(s * w.freq * 2 * Math.PI + w.phase + instanceSeed) * w.amp
       }
 
-      const baseYPx = (baseY !== null ? baseY : ((window.innerHeight || 768) * 0.45)) - halfH
+      const baseYPx = (baseY !== null ? (baseY / 100) * (window.innerHeight || 768) : ((window.innerHeight || 768) * 0.45)) - halfH
       yMotion.set(baseYPx + wob)
 
       // gentle breathing
@@ -227,7 +228,7 @@ const Koi = ({
     <motion.svg
       key={instanceId + '-' + remountKey}
       ref={svgRef}
-      style={{ position: 'absolute', left: 0, top: 0, pointerEvents: 'none', x, y: yMotion }}
+      style={{ position: 'absolute', left: 0, top: 0, pointerEvents: 'none', x, y: yMotion, scaleX }}
       className="koi-svg"
       width={160 * scale}
       height={80 * scale}

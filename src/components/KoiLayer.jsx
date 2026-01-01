@@ -19,7 +19,7 @@ const KoiLayer = ({ instances = null }) => {
       direction: directions[Math.floor(Math.random() * directions.length)],
       duration: Math.random() * 20 + 16, // 16-36 seconds
       delay: Math.random() * 8, // 0-8 second stagger
-      y: Math.random() * 70 + 10, // 10-80 vh
+      y: Math.random() * 100, // 0-100vh (full viewport height)
       scale: Math.random() * 0.4 + 0.7, // 0.7-1.1x
       variant: variants[Math.floor(Math.random() * variants.length)]
     }))

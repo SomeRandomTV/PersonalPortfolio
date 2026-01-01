@@ -23,10 +23,11 @@ const ExperienceDetail = () => {
 
   return (
     <div className="min-h-screen bg-background pt-24 pb-20">
-      <div className="container mx-auto px-6 max-w-7xl">
+      {/* Koi overlay for experience page (fixed layer) */}
+      <KoiLayer />
+      
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
 
-        {/* Koi overlay for experience page (fixed layer) */}
-        <KoiLayer />
         {/* Back Button */}
         <motion.button
           initial={{ opacity: 0, x: -20 }}
@@ -70,7 +71,7 @@ const ExperienceDetail = () => {
               {exp.images && exp.images.length > 0 && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                   {exp.images.map((img, idx) => (
-                    <motion.div key={idx} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="w-full">
+                    <motion.div key={idx} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="w-full" data-koi-occluder>
                       <img
                         src={img.src}
                         alt={img.alt || ''}
@@ -197,6 +198,7 @@ const Section = ({ title, children }) => (
 const ResponsibilityCard = ({ icon, title, description }) => (
   <motion.div
     whileHover={{ y: -3 }}
+    data-koi-occluder
     className="luxury-card p-6"
   >
     <div className="text-3xl mb-4">{icon}</div>
@@ -217,6 +219,7 @@ const Achievement = ({ metric, description }) => (
 const SkillCard = ({ icon, title, skills }) => (
   <motion.div
     whileHover={{ y: -5 }}
+    data-koi-occluder
     className="luxury-card p-6"
   >
     <div className="text-3xl mb-4">{icon}</div>

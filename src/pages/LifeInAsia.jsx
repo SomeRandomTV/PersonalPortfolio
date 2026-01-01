@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import experienceData from '../data/experience.json'
+import KoiLayer from '../components/KoiLayer'
 
 const LifeInAsia = () => {
   const navigate = useNavigate()
@@ -189,7 +190,7 @@ const LifeInAsia = () => {
 
   return (
     <div className="min-h-screen bg-background pt-24 pb-20 relative">
-      
+      <KoiLayer />
       <div className="container relative z-10 mx-auto px-6 max-w-4xl">
         <motion.button
           initial={{ opacity: 0, x: -20 }}
@@ -333,7 +334,7 @@ const LifeInAsia = () => {
             <h2 className="text-2xl text-textPrimary font-light mb-4">Photos</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {images.map((img, i) => (
-                <div key={i} className="luxury-card p-4">
+                <div key={i} data-koi-occluder className="luxury-card p-4">
                   <motion.img src={img.src} alt={img.alt || ''} loading="lazy" className="w-full h-48 object-cover rounded" layoutId={`photo-${i}`} />
                   {img.caption && <p className="text-textMuted text-sm mt-2">{img.caption}</p>}
                 </div>
