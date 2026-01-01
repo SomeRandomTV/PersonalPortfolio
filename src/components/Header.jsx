@@ -1,25 +1,28 @@
-import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+
+import React, { useState, useEffect, useRef } from 'react'
+// animations removed: framer-motion usage deleted
+import { useLocation, useNavigate } from 'react-router-dom'
+
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const location = useLocation()
+  const navigate = useNavigate()
+  const pendingSection = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
-      
       // Detect active section
       const sections = ['home', 'about', 'projects', 'contact']
       const scrollPosition = window.scrollY + 100
-
       for (const section of sections) {
         const element = document.getElementById(section)
         if (element) {
           const offsetTop = element.offsetTop
           const offsetBottom = offsetTop + element.offsetHeight
-          
           if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
             setActiveSection(section)
             break
@@ -27,16 +30,34 @@ const Header = () => {
         }
       }
     }
-
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Scroll to section after navigation to home
+  useEffect(() => {
+    if (location.pathname === '/' && pendingSection.current) {
+      setTimeout(() => {
+        const el = document.getElementById(pendingSection.current)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' })
+        }
+        pendingSection.current = null
+      }, 100) // wait for DOM
+    }
+  }, [location])
+
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+    if (location.pathname !== '/') {
+      pendingSection.current = sectionId
+      navigate('/')
       setIsMobileMenuOpen(false)
+    } else {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+        setIsMobileMenuOpen(false)
+      }
     }
   }
 
@@ -48,27 +69,22 @@ const Header = () => {
   ]
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+    <header data-koi-occluder className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled 
           ? 'frosted-glass border-b border-border' 
           : 'bg-transparent'
-      }`}
-    >
+      }`}>
       <nav className="container mx-auto px-12 py-8">
         <div className="flex items-center justify-between">
           {/* Luxury Logo */}
-          <motion.a
+          <a
             href="https://www.ziatechnica.org/"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.02 }}
             className="text-xl font-light tracking-luxury-wide cursor-pointer uppercase"
           >
             <span className="gradient-luxury-text">ZiaTechnica</span>
-          </motion.a>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-14">
@@ -113,13 +129,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.4 }}
-            className="md:hidden mt-6 py-6 border-t border-border"
-          >
+          <div className="md:hidden mt-6 py-6 border-t border-border">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -133,10 +143,10 @@ const Header = () => {
                 {item.label}
               </button>
             ))}
-          </motion.div>
+          </div>
         )}
       </nav>
-    </motion.header>
+    </header>
   )
 }
 

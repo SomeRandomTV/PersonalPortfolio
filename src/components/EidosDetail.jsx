@@ -1,6 +1,8 @@
+
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import eidosData from '../data/eidos.json'
 
 const EidosDetail = () => {
   const navigate = useNavigate()
@@ -197,7 +199,7 @@ COMPARISON_OP ::= '==' | '!=' | '<' | '>' | '<=' | '>='`
               $ ./eidos
             </h1>
             <p className="text-textSecondary text-lg font-mono mb-6">
-              Custom Lexical Analyzer & Syntax Parser for the Eidos Programming Language
+              {eidosData.overview}
             </p>
             
             <div className="flex flex-wrap gap-3 mb-6">
@@ -228,6 +230,35 @@ COMPARISON_OP ::= '==' | '!=' | '<' | '>' | '<=' | '>='`
           </div>
         </motion.div>
 
+        {/* Overview, Problem, Motivation, Features */}
+        <Section title="PROBLEM & MOTIVATION">
+          <div className="luxury-card p-8">
+            <h3 className="text-primary text-lg font-light mb-2">Problem</h3>
+            <p className="text-textSecondary font-light mb-6">{eidosData.problem}</p>
+            <h3 className="text-primary text-lg font-light mb-2">Motivation</h3>
+            <p className="text-textSecondary font-light mb-6">{eidosData.motivation}</p>
+            <h3 className="text-primary text-lg font-light mb-2">Key Features</h3>
+            <ul className="space-y-2 text-textSecondary font-light">
+              {eidosData.keyFeatures.map((feature, i) => (
+                <li key={i}>{feature}</li>
+              ))}
+            </ul>
+          </div>
+        </Section>
+
+        {/* Challenges */}
+        <Section title="CHALLENGES">
+          <div className="luxury-card p-8">
+            <ul className="space-y-3 text-textSecondary font-light">
+              {eidosData.challenges.map((c, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="text-secondary">•</span>
+                  <span><b>{c.challenge}</b> <span className="text-textMuted">{c.solution}</span></span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Section>
         {/* Compilation Pipeline */}
         <Section title="COMPILATION PIPELINE">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">

@@ -1,38 +1,22 @@
 {
   "ara": {
-    "overview": "A.R.A. (Adaptive Real-time Assistant) is a privacy-first AI system designed to assist caregivers in monitoring and supporting their care recipients through local-inference machine learning pipelines. Built on top of AXIOM orchestration engine and AuraLens computer vision system, A.R.A. provides real-time assistance without compromising patient privacy. \nNOTE: A.R.A. is still in its earliest stages with research being done on AuraLens and Phase 1 done of AXIOM.",
-    "problem": "Traditional caregiver monitoring systems rely on cloud-based processing, raising significant HIPAA compliance concerns and privacy issues. On top of that, Caregivers are left with hours of paperwork to do and not enough 1-on-1 with their recepients. Caregivers need real-time alerts for falls, emotional distress, angerous situations and automated workflows to ease the stress, but existing solutions compromise patient data security and autonomy.",
-    "motivation": "Create a fully local AI assistant that processes sensitive health data on-device, ensuring HIPAA compliance while providing caregivers with actionable insights through computer vision and natural language understanding.",
+    "overview": "A.R.A. (Adaptive Real-time Assistant) is an experimental system at the intersection of intelligence, privacy, and adaptability. Its true purpose is best experienced, not described. Built on a foundation of modularity and local-first design, A.R.A. explores new frontiers in what it means to assist—while keeping its secrets close.\nNOTE: A.R.A. is in its earliest stages, with ongoing research and development. Technologies and architecture are under wraps until launch.",
+    "problem": "Existing solutions for support and monitoring often compromise privacy, create extra work, or fail to deliver meaningful real-time assistance. The world needs a new approach—one that puts people first, and keeps secrets safe.",
+    "motivation": "To create a new kind of assistant—one that respects privacy, empowers users, and redefines what intelligent support can be. The details? You'll have to wait and see.",
     "architecture": {
-      "description": "A.R.A. uses a modular architecture with three core components: AXIOM for intent orchestration, AuraLens for visual processing, and a local LLM for natural language interaction.",
-      "components": [
-        "AXIOM - Intent orchestration engine",
-        "AuraLens - Stereo vision processing pipeline",
-        "Local LLM - Privacy-preserving language model",
-        "SQLite - Local state management",
-        "AsyncIO - Concurrent task handling"
-      ]
+      "description": "A.R.A.'s architecture is intentionally undisclosed. The system is designed for adaptability, privacy, and surprise. Details will be revealed at launch.",
+      "components": []
     },
     "keyFeatures": [
-      "100% local inference - No cloud dependencies",
-      "Real-time fall detection via stereo cameras(planned)",
-      "Emotion recognition through facial analysis(planned)",
-      "Voice-activated commands with local speech processing",
-      "HIPAA-compliant automated logging(Planned)"
+      "Privacy-first by design",
+      "Real-time, adaptive assistance",
+      "Surprising capabilities—details coming soon"
     ],
-    "technologies": ["Python", "PyTorch", "OpenCV", "spaCy", "SQLite", "asyncio", "Ollama"],
+    "technologies": [],
     "challenges": [
       {
-        "challenge": "Real-time inference on consumer hardware",
-        "solution": "Still in Prototype ~10ms"
-      },
-      {
-        "challenge": "HIPAA compliance without cloud storage",
-        "solution": "Fully local processing pipeline with encrypted local storage and audit trails"
-      },
-      {
-        "challenge": "Multi-modal data fusion (vision + audio + text)",
-        "solution": "AXIOM orchestration layer coordinates async processing across modalities"
+        "challenge": "Building something new without revealing too much.",
+        "solution": "Stay tuned."
       }
     ],
     "screenshots": [],
@@ -43,40 +27,23 @@
     }
   },
   "auralens": {
-    "overview": "AuraLens is a stereo camera-based computer vision system in active research that will serve as the visual processing engine for A.R.A. Currently researching real-time analysis techniques for patient behavior monitoring, including fall detection, emotional state recognition, and dangerous situation identification with low latency and high accuracy.",
-    "problem": "Traditional fall detection systems use wearable sensors that patients often forget or refuse to wear. Camera-based systems invade privacy or require cloud processing. A balance was needed between effectiveness and privacy.",
-    "motivation": "Develop a non-invasive, privacy-preserving vision system that can detect critical events (falls, distress) in real-time while operating entirely on local hardware.",
+    "overview": "AuraLens is a research project exploring new ways for technology to perceive and understand the world. Developed for my startup as part of the A.R.A. system, the specifics are confidential to protect our intellectual property.",
+    "problem": "How can machines see and interpret the world in a way that is both useful and respectful of privacy?",
+    "motivation": "To discover and invent new approaches to machine perception. Details will be shared when the time is right.",
     "architecture": {
-      "description": "AuraLens will use a dual-camera setup for depth perception, processing frames through a multi-stage pipeline: preprocessing, feature extraction, classification, and event detection. Currently in research phase exploring optimal architectures.",
-      "components": [
-        "Stereo Camera Input - Depth perception via dual cameras",
-        "Preprocessing Pipeline - Noise reduction and normalization",
-        "Pose Estimation - Real-time skeleton tracking",
-        "Fall Detection - Geometric analysis of pose changes",
-        "Emotion Recognition - Facial feature analysis",
-        "Event Logger - HIPAA-compliant activity logging"
-      ]
+      "description": "Confidential.",
+      "components": []
     },
     "keyFeatures": [
-      "Stereo vision for accurate depth perception",
-      "Privacy-preserving: processes locally, no cloud uploads",
-      "Multi-class emotion detection via facial analysis",
-      "Dangerous situation recognition (fire, weapons, sharp objects)",
-      "Automated HIPAA-compliant event logging"
+      "Vision reimagined",
+      "Privacy at the core",
+      "More to come"
     ],
-    "technologies": ["Python", "OpenCV", "PyTorch", "Scikit-Image", "NumPy"],
+    "technologies": [],
     "challenges": [
       {
-        "challenge": "Low-latency inference on CPU",
-        "solution": "Model optimization through quantization, achieving <50ms processing time"
-      },
-      {
-        "challenge": "Handling variable lighting conditions",
-        "solution": "Adaptive preprocessing pipeline with histogram equalization and noise reduction"
-      },
-      {
-        "challenge": "Privacy concerns with video monitoring",
-        "solution": "Edge processing only - no video storage, only anonymized event logs"
+        "challenge": "Inventing something new while keeping it under wraps.",
+        "solution": "Patience."
       }
     ],
     "screenshots": [],
@@ -131,50 +98,23 @@
     }
   },
   "axiom": {
-    "overview": "AXIOM (ARA's eXtensible Intent & Orchestration Machine) is the core runtime and orchestration engine for the A.R.A. system. Phase 1 delivers a fully functional virtual assistant with speech/text interaction, event-driven architecture, and privacy-first local inference. Built on Python asyncio with SQLite persistence, AXIOM provides the foundation for future healthcare AI capabilities while maintaining complete data locality.",
-    "problem": "Traditional virtual assistants rely on cloud processing, creating privacy concerns and latency issues for sensitive healthcare applications. Caregivers need a conversational AI assistant that processes everything locally while maintaining extensibility for future sensor integration and compliance requirements. Building a system that balances real-time responsiveness, privacy, and future scalability is technically challenging.",
-    "motivation": "Create a privacy-first virtual assistant runtime that serves as the foundation for ARA's healthcare applications. Phase 1 establishes core conversational capabilities, event-driven architecture, and persistent state management—all processing locally without cloud dependencies. This foundation enables future phases to add computer vision, sensor integration, and HIPAA compliance while maintaining architectural integrity.",
+    "overview": "AXIOM is a project focused on rethinking how intelligent systems make decisions and coordinate actions. Developed for my startup as part of the A.R.A. system, the details are confidential to protect our intellectual property until licensing is secured.",
+    "problem": "How can we enable smarter, more private, and more adaptable decision-making in technology?",
+    "motivation": "To lay the groundwork for a new era of intelligent orchestration. More information will be available after launch.",
     "architecture": {
-      "description": "Event-driven pub/sub architecture with modular components. Uses Python asyncio for concurrent processing, SQLite for local state persistence, Ollama for LLM inference, and Whisper for speech recognition. Components communicate via a central event bus, enabling loose coupling and future extensibility.",
-      "components": [
-        "Virtual Assistant (VA) - Dialog management and intent detection",
-        "System Bus - Pub/sub event routing and component coordination",
-        "State Store - SQLite-backed conversation logging and persistence",
-        "Policy Engine - Guardrails and compliance framework (stub)",
-        "Console Interface - CLI REPL for user interaction",
-        "Speech Integration - Whisper ASR and TTS engines"
-      ]
+      "description": "Confidential.",
+      "components": []
     },
     "keyFeatures": [
-      "100% local processing - No cloud dependencies",
-      "Speech and text input via Whisper ASR",
-      "Event-driven pub/sub architecture for component communication",
-      "SQLite conversation logging with full history persistence",
-      "Rule-based intent detection (expandable to ML)",
-      "Cross-platform CLI interface (Linux, macOS, Windows)",
-      "Sub-500ms input processing latency",
-      "Modular architecture ready for sensor/vision integration"
+      "Orchestration reimagined",
+      "Privacy at the core",
+      "More to come"
     ],
-    "technologies": ["Python 3.10+", "asyncio", "SQLite", "Ollama", "Whisper", "Coqui TTS"],
+    "technologies": [],
     "challenges": [
       {
-        "challenge": "Maintaining <500ms response time with local LLM inference(Longer messages longer processing times)",
-        "solution": [
-                      "Asyncio event loop with non-blocking I/O, optimized Ollama model selection, and intelligent prompt caching.",
-                      "Another thing, this will be hard to do, but stream the LLM and TTS response, going to have to get low level here."
-                    ]
-      },
-      {
-        "challenge": "Designing extensible architecture for unknown future requirements",
-        "solution": "Event-driven pub/sub pattern with plugin-ready interfaces, allowing new components to subscribe without core modifications"
-      },
-      {
-        "challenge": "Ensuring conversation state consistency across async operations",
-        "solution": "SQLite with atomic transactions and session-based logging, preventing race conditions during concurrent events"
-      },
-      {
-        "challenge": "Privacy-first design without sacrificing functionality",
-        "solution": "All data processing occurs locally using Ollama and Whisper, zero network calls during normal operation, encrypted local storage"
+        "challenge": "Inventing something new while keeping it under wraps.",
+        "solution": "Patience."
       }
     ],
     "screenshots": [],

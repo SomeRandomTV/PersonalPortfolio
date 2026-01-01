@@ -1,0 +1,31 @@
+{
+  "overview": "This project demonstrates how to extract hidden periodic patterns from microscope images using frequency-domain (Fourier Transform) analysis. It also corrects for non-uniform illumination to reveal subtle repeating structures.",
+  "goals": [
+    "Extract the periodic pattern that is (vaguely) visible in the input image.",
+    "Remove the impact of non-uniform illumination."
+  ],
+  "method": [
+    "Read the input image from the current directory.",
+    "Apply a frequency-domain filter (Fourier Transform) to isolate the dominant periodic components.",
+    "Display the frequency-domain filter used for extraction.",
+    "Extract and display the periodic pattern.",
+    "Correct for non-uniform illumination and display the uniformly illuminated input image."
+  ],
+  "images": [
+    {
+      "label": "Frequency-domain filter used",
+      "src": "/frequency_filtering/frequency_filter.png"
+    },
+    {
+      "label": "Extracted periodic pattern",
+      "src": "/frequency_filtering/extracted_pattern.png"
+    },
+    {
+      "label": "Uniformly illuminated input image",
+      "src": "/frequency_filtering/uniform_illumination.png"
+    }
+  ],
+  "techStack": ["Python", "OpenCV", "NumPy"],
+  "status": "Completed",
+  "github": "https://github.com/SomeRandomTV/ImageProcessing-Project3"
+}

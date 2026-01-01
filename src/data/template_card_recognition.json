@@ -1,0 +1,20 @@
+{
+  "overview": "A computer vision system for recognizing standard playing cards using template matching. Assumes a black background and standard card designs for robust detection.",
+  "goals": [
+    "Detect and classify the rank and suit of a playing card from an image or webcam feed.",
+    "Handle perspective distortion and varying lighting.",
+    "Provide confidence metrics for each detection.",
+    "Support both webcam and image upload inputs."
+  ],
+  "method": [
+    "Convert input to grayscale and apply adaptive thresholding.",
+    "Detect card contours and apply perspective correction (homography).",
+    "Extract and zoom the top-left corner for symbol isolation.",
+    "Split corner into rank and suit regions, extract contours, and resize.",
+    "Compare extracted symbols to templates using pixel-wise absolute difference.",
+    "Classify based on best match and confidence threshold."
+  ],
+  "techStack": ["Python", "OpenCV", "NumPy", "React", "KaTeX"],
+  "status": "Completed",
+  "github": "https://github.com/SomeRandomTV/Image-Processing-Project-4"
+}

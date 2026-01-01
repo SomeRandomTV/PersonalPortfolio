@@ -8,7 +8,8 @@
       "I continued to code here and there until my senior year at Lake Arthur High School(2020-2021), my hometown still in N.M. where I graduated and decided to study Computer Science at the New Mexico Military Institute (N.M.M.I.)",
       "One and a half years later (Fall 2022) I graduated and transferred to T.T.U in the Spring of 2023 where unfortunately ~30 of my 65 credits transferred. That was a kick in the stomach but, it is here at T.T.U. that my appetite for C.S. has increased exponentially.", 
       "In the last several months I worked day/night and deepend my interests in Image Processing/Computer Vision systems and low level systems engineering for real-time behaviour analysis.",
-      "Despite my work/classes and my part time job taking up most of my time, I will pick up my guitar and melt people's faces of with my deathcore band Septilith."
+      "Despite my work/classes and my part time job taking up most of my time, I will pick up my guitar and melt people's faces of with my deathcore band Septilith.",
+      "I also spent time in Korea and Japan through Texas Tech University and CRCC Asia — experiences that broadened my perspective, inspired much of this portfolio, and deepened my interest in cross-cultural collaboration."
     ],
     "quote": "'The future is not a river to carry us. It is the ocean in which we drown, if we are not prepared' - Darth Vitiate"
   },
@@ -32,7 +33,9 @@
       "Pandas",
       "Numpy",
       "Matplotlib",
-      "jupyter"
+      "jupyter",
+      "SQL",
+      "NoSQL"
     ],
     "Development": [
       "Python",
@@ -45,7 +48,8 @@
       "Docker",
       "SQL(ite)",
       "NoSQL", 
-      "Regex"
+      "Regex",
+      "TensorBoard"
     ]
   },
   "experience": [

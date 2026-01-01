@@ -1,6 +1,8 @@
+
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import tryeverythingnetData from '../data/tryeverythingnet.json'
 
 const TryEverythingNetDetail = () => {
   const navigate = useNavigate()
@@ -114,53 +116,39 @@ const TryEverythingNetDetail = () => {
           </div>
         </motion.div>
 
-        {/* Current Status Banner */}
-        <Section title="CURRENT STATUS">
+        {/* Overview, Problem, Motivation, Features */}
+        <Section title="PROBLEM & MOTIVATION">
           <div className="luxury-card p-8">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h4 className="text-primary text-sm font-light mb-4 tracking-wide uppercase">What's Working Now</h4>
-                <ul className="space-y-3 text-textSecondary">
-                  <li className="flex items-start gap-3">
-                    <span className="text-primary mt-1">✓</span>
-                    <span className="font-light">Traditional filtering methods (Gaussian, Bilateral, Median, NLM, Wiener)</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-primary mt-1">✓</span>
-                    <span className="font-light">Deep learning denoiser (DnCNN) trained on Gaussian noise</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-primary mt-1">✓</span>
-                    <span className="font-light">Side-by-side comparison of traditional vs. deep learning approaches</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-primary mt-1">✓</span>
-                    <span className="font-light">PSNR/SSIM quality metrics for objective evaluation</span>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-secondary text-sm font-light mb-4 tracking-wide uppercase">Future Vision</h4>
-                <ul className="space-y-3 text-textSecondary">
-                  <li className="flex items-start gap-3">
-                    <span className="text-textMuted mt-1">○</span>
-                    <span className="font-light">Adaptive system that tries all filters and selects the best result automatically</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-textMuted mt-1">○</span>
-                    <span className="font-light">Multiple DnCNN models for different noise types (salt & pepper, motion blur)</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-textMuted mt-1">○</span>
-                    <span className="font-light">Iterative filtering with quality-based convergence detection</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-textMuted mt-1">○</span>
-                    <span className="font-light">Ensemble methods combining traditional + deep learning outputs</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <h3 className="text-primary text-lg font-light mb-2">Problem</h3>
+            <p className="text-textSecondary font-light mb-6">{tryeverythingnetData.problem}</p>
+            <h3 className="text-primary text-lg font-light mb-2">Motivation</h3>
+            <p className="text-textSecondary font-light mb-6">{tryeverythingnetData.motivation}</p>
+            {tryeverythingnetData.dataset && (
+              <>
+                <h3 className="text-primary text-lg font-light mb-2">Dataset</h3>
+                <p className="text-textSecondary font-light mb-6">{tryeverythingnetData.dataset}</p>
+              </>
+            )}
+            <h3 className="text-primary text-lg font-light mb-2">Key Features</h3>
+            <ul className="space-y-2 text-textSecondary font-light">
+              {tryeverythingnetData.keyFeatures.map((feature, i) => (
+                <li key={i}>{feature}</li>
+              ))}
+            </ul>
+          </div>
+        </Section>
+
+        {/* Challenges */}
+        <Section title="CHALLENGES">
+          <div className="luxury-card p-8">
+            <ul className="space-y-3 text-textSecondary font-light">
+              {tryeverythingnetData.challenges.map((c, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="text-secondary">•</span>
+                  <span><b>{c.challenge}</b> <span className="text-textMuted">{c.solution}</span></span>
+                </li>
+              ))}
+            </ul>
           </div>
         </Section>
 
@@ -466,7 +454,7 @@ const TryEverythingNetDetail = () => {
             />
             <Challenge
               title="Multi-Noise Type Training"
-              description="Training a single model to handle Gaussian, salt-and-pepper, and motion blur simultaneously (blind denoising) proves difficult. Currently developing separate models for each noise type before attempting unified architecture."
+              description="Training a single model to handle Gaussian, salt-and-pepper, and motion blur simultaneously (blind denoising) proved to be difficult. To battle this we developed 3 separate models for each noise type before attempting unified architecture."
             />
             <Challenge
               title="Real-Time Performance on Medical Images"

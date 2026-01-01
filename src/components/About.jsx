@@ -62,6 +62,18 @@ const About = () => {
                   )}
                 </div>
 
+                <div className="mt-6 text-center">
+                  <motion.button
+                    onClick={() => navigate('/life-in-asia')}
+                    whileHover={{ y: -3 }}
+                    transition={{ duration: 0.18 }}
+                    className="text-primary underline font-light"
+                    aria-label="Read my Life In Asia page"
+                  >
+                    Read more — Life In Asia (Korea & Japan)
+                  </motion.button>
+                </div>
+
                 {/* Core Values */}
                 <div className="mt-10">
                   <h4 className="text-base font-light text-primary mb-6 tracking-luxury-wide uppercase">

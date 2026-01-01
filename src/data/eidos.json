@@ -1,0 +1,27 @@
+{
+  "overview": "Eidos is a custom compiler for my custom Eidos language.",
+  "problem": "Parsing structured text is a fundamental computer science problem. Building a parser from scratch provides deep understanding of formal languages, DSA, compilation theory.",
+  "motivation": "Understand how compilers work by implementing the frontend stages: lexical analysis and syntax parsing with proper error handling, and later, semantic analysis and code generation.",
+  "keyFeatures": [
+    "Multi-character token recognition",
+    "Whitespace handling",
+    "Syntax validation against grammar",
+    "Detailed error messages with line numbers",
+    "AST generation for semantic analysis",
+    "Support for nested structures",
+    "Simple IO via print() + read()",
+    "Simple arithmetic operations via +, -, *, /, ++",
+    "Control flow via for + while loops and if-else statements",
+    "Logical Comparisons via <,>, <=, >=, ==, !="
+  ],
+  "challenges": [
+    {
+      "challenge": "Efficient token lookahead without backtracking",
+      "solution": "Single-character buffer with peek functionality"
+    },
+    {
+      "challenge": "Clear error messages for syntax violations",
+      "solution": "Line/column tracking with context-aware error reporting"
+    }
+  ]
+}

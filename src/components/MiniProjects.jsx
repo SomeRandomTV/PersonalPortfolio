@@ -102,9 +102,19 @@ const MiniProjects = () => {
                     <span className="font-mono">{'>'}</span> GitHub
                   </a>
                 )}
-                <span className="text-textMuted hover:text-primary transition-colors font-mono">
-                  {'>'} View Details
-                </span>
+                {project.detailRoute ? (
+                  <a
+                    href={project.detailRoute}
+                    className="text-textMuted hover:text-primary transition-colors font-mono"
+                    onClick={e => e.stopPropagation()}
+                  >
+                    {'>'} View Details
+                  </a>
+                ) : (
+                  <span className="text-textMuted hover:text-primary transition-colors font-mono">
+                    {'>'} View Details
+                  </span>
+                )}
               </div>
             </motion.div>
           ))}

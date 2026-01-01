@@ -1,3 +1,23 @@
+pre, code {
+  font-family: 'Fira Code', 'JetBrains Mono', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  font-variant-ligatures: contextual;
+  font-size: 1em;
+}
+
+/* Koi layer + occlusion styles */
+.koi-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.koi-occluded {
+  filter: blur(2px);
+  opacity: 0.7;
+  transition: filter 180ms linear, opacity 180ms linear;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -112,6 +112,7 @@ const Hero = () => {
         <div className="w-full h-full rounded-full bg-gradient-radial from-primary/8 via-primary/3 to-transparent gentle-pulse" />
       </div>
 
+
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 py-32">
         <motion.div

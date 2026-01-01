@@ -1,0 +1,114 @@
+{
+  "currentEducation": {
+    "degree": "Bachelor of Science in Computer Science",
+    "institution": "Texas Tech University",
+    "location": "Lubbock, Texas",
+    "period": "Spring 2023 - Spring 2026",
+    "overview": "Currently pursuing a B.S. in Computer Science at Texas Tech University with a specialized focus on Computer Vision, AI/ML systems, and low-level systems programming. This phase of my education has been transformative, igniting an exponential growth in my appetite for computer science and driving deep technical exploration beyond the classroom.",
+    "focusAreas": [
+      {
+        "icon": "👁️",
+        "title": "Computer Vision",
+        "description": "Image processing, object detection, real-time video analysis, and behavior recognition systems using OpenCV and deep learning frameworks."
+      },
+      {
+        "icon": "🧠",
+        "title": "AI/ML Systems",
+        "description": "Deep learning architectures, model optimization, privacy-first local inference, and production deployment of intelligent systems."
+      },
+      {
+        "icon": "⚙️",
+        "title": "Low-Level Programming",
+        "description": "Systems programming in C/C++ and Rust, real-time behavior analysis, and efficient algorithm implementation for performance-critical applications."
+      }
+    ],
+    "takenCourses": [
+      "Data Structures & Algorithms",
+      "Computer Architecture",
+      "Computer Organization with Assembly Lang",
+      "Software Engineering",
+      "Image Processing",
+      "Cyber-Aerial Computing",
+      "Object-Oriented Programming"
+    ],
+    "plannedCourses": [
+        "Concepts Of Operating Systems",
+        "Concepts of Database Systems",
+        "Reinforcement Learning"
+    ],
+    "projects": [
+      {
+        "title": "A.R.A. (Adaptive Real-time Assistant)",
+        "description": "Spearheaded a student-led project exploring the boundaries of intelligent assistance. A.R.A. is an experimental system—its true nature is best experienced rather than described. The project blends multiple disciplines and technologies, with a focus on privacy and adaptability."
+      },
+      {
+        "title": "Image Denoising Research",
+        "description": "Implemented and compared multiple denoising algorithms including DnCNN, achieving 39.13 PSNR on test datasets. Explored traditional and deep learning approaches for noise reduction in medical imaging."
+      },
+      {
+        "title": "Compiler Development",
+        "description": "Built a custom lexer and parser for a programming language implementation, deepening understanding of language design, tokenization, and abstract syntax tree construction."
+      }
+    ]
+  },
+  "previousEducation": {
+    "degree": "Associate Degree",
+    "institution": "New Mexico Military Institute",
+    "location": "Roswell, New Mexico",
+    "period": "Fall 2021 - Fall 2022",
+    "overview": "Start of my career, 16-18(+) credit hour semesters, with the Corps of Cadets responsibilites. Better have everything on lock or you were not making it out. At the Institute my horizens exploded. I met people from many different backrounds, mentored cadets new/old and gained an experience I would never trade for the world.",
+    "experience": [
+      {
+        "title": "Academic Rigor",
+        "description": "From the intensive coursework, the Corps of Cadets, all the Parades, Formal Room Inspections, Drill and Ceremony Training, and funny enough sometimes lack of communication from top to bottom, developing strong time management and prioritization skills under strict schedules and high expectations were a MUST."
+      },
+      {
+        "title": "Leadership Development",
+        "description": "Cultivated leadership abilities through military structure, learning to work effectively in teams, communicate clearly under pressure, and maintain composure in challenging situations."
+      },
+      {
+        "title": "C.S. Nuturing",
+        "description": "At N.M.M.I. my advisor told me that to graduate in one and a half years I would have to major in something else, so I did (Liberal. Arts.). I did still take C.S. classes but mostly had to learn mostly on my own time."
+      }
+    ],
+    "foundationCourses": [
+      "Introduction to Programming",
+      "Intro To Engineering",
+      "Discrete Mathematics"
+    ]
+  },
+  "originStory": [
+    {
+      "title": "First Encounter (2015)",
+      "description": "The journey began in Eunice, New Mexico, during a summer visit with my older brother in 2015. He introduced me to HTML, sparking the first lines of code that would eventually shape my career path. Those early summer days of learning web fundamentals planted the seed for a lifelong passion."
+    },
+    {
+      "title": "High School Years (2017-2021)",
+      "description": "Throughout my time at Lake Arthur High School in my New Mexico hometown, I continued coding intermittently. During my senior year, the interest crystallized into a definitive decision: pursue Computer Science at the college level and make it a career."
+    },
+    {
+      "title": "The Institute (2021-2022)",
+      "description": "Life at the Institute was... an experience, one I would never trade. One that built the foundation of who I am today. From the people I met and the relationships built, the challenges(Physical/Mental/Academic) faced, 'the drills and parades, it's tinsle and glare' - (Col. Robert S. Goss NMM.I. Founder). The Institute challenged all, tore us down and built us up. Go Broncos!"
+    },
+    {
+      "title": "Transfer Challenges (Spring 2023)",
+      "description": "The transition from N.M.M.I. to Texas Tech in Spring 2023 came with a big setback—only ~30 of my 64 credits transferred. While initially disheartening, this challenge became a turning point. Instead of slowing down, it motivated an intensified focus on computer science fundamentals and advanced topics."
+    },
+    {
+      "title": "Exponential Growth (2023-Present)",
+      "description": "At Texas Tech, my appetite for computer science has grown exponentially. As I got deeper into my degree, so did my appetite. I started getting into more and more advanced topics and things just started making sense, with the help of some Professors I have thrived here at T.T.U. studying C.S. Did I also mention I went to Japan for an internship?"
+    }
+  ],
+  "beyondClassroom": [
+    {
+      "icon": "🚀",
+      "title": "ZIATECHNICA Startup",
+      "description": "Assembled and lead a team of students to build ZIATECHNICA, our startup focused on privacy-first AI systems. Our flagship project A.R.A. (Adaptive Real-time Assistant) combines computer vision, NLP, and local inference for healthcare applications—translating academic knowledge into real-world impact."
+    },
+    {
+      "icon": "🎸",
+      "title": "Septilith (Deathcore Band)",
+      "description": "Despite the demanding schedule of work, classes, and entrepreneurship, music remains a vital creative outlet. As a guitarist for the deathcore band Septilith, I channel technical precision and creativity in a completely different domain—proving that passion transcends boundaries."
+    }
+  ]
+}

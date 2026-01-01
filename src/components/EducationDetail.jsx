@@ -1,9 +1,11 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import educationData from '../data/education.json'
 
 const EducationDetail = () => {
   const navigate = useNavigate()
+  const edu = educationData
 
   return (
     <div className="min-h-screen bg-background pt-24 pb-20">
@@ -34,54 +36,59 @@ const EducationDetail = () => {
         </motion.div>
 
         {/* Texas Tech University */}
-        <Section title="TEXAS TECH UNIVERSITY">
+        <Section title={edu.currentEducation.institution.toUpperCase()}>
           <div className="luxury-card p-8">
             {/* University Header */}
             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 pb-6 border-b border-border/30">
               <div>
-                <h3 className="text-2xl font-light text-primary mb-2">Bachelor of Science in Computer Science</h3>
-                <p className="text-textMuted font-light">Lubbock, Texas</p>
+                <h3 className="text-2xl font-light text-primary mb-2">{edu.currentEducation.degree}</h3>
+                <p className="text-textMuted font-light">{edu.currentEducation.location}</p>
               </div>
               <div className="text-textSecondary font-light mt-2 md:mt-0">
-                2023 - Present
+                {edu.currentEducation.period}
               </div>
             </div>
 
             {/* Overview */}
             <p className="text-textSecondary font-light leading-relaxed mb-8">
-              Currently pursuing a B.S. in Computer Science at Texas Tech University with a specialized focus on Computer Vision, AI/ML systems, and low-level systems programming. This phase of my education has been transformative, igniting an exponential growth in my appetite for computer science and driving deep technical exploration beyond the classroom.
+              {edu.currentEducation.overview}
             </p>
 
             {/* Focus Areas */}
             <h4 className="text-primary text-lg font-light mb-6 tracking-wide uppercase">Areas of Focus</h4>
             <div className="grid md:grid-cols-3 gap-6 mb-10">
-              <FocusCard
-                icon="👁️"
-                title="Computer Vision"
-                description="Image processing, object detection, real-time video analysis, and behavior recognition systems using OpenCV and deep learning frameworks."
-              />
-              <FocusCard
-                icon="🧠"
-                title="AI/ML Systems"
-                description="Deep learning architectures, model optimization, privacy-first local inference, and production deployment of intelligent systems."
-              />
-              <FocusCard
-                icon="⚙️"
-                title="Low-Level Programming"
-                description="Systems programming in C/C++ and Rust, real-time behavior analysis, and efficient algorithm implementation for performance-critical applications."
-              />
+              {edu.currentEducation.focusAreas.map((area, i) => (
+                <FocusCard
+                  key={i}
+                  icon={area.icon}
+                  title={area.title}
+                  description={area.description}
+                />
+              ))}
             </div>
 
-            {/* Key Courses */}
-            <h4 className="text-primary text-lg font-light mb-6 tracking-wide uppercase">Relevant Coursework</h4>
+            {/* Taken Courses */}
+            <h4 className="text-primary text-lg font-light mb-2 tracking-wide uppercase">Taken Courses</h4>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              {edu.currentEducation.takenCourses.map((course, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="flex items-center gap-3 p-3 border-l-2 border-secondary/30 hover:border-secondary/60 transition-colors"
+                >
+                  <span className="text-secondary">→</span>
+                  <span className="text-textSecondary font-light">{course}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Planned Courses */}
+            <h4 className="text-secondary text-lg font-light mb-2 tracking-wide uppercase">Planned Courses</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-10">
-              {[
-                'Data Structures & Algorithms',
-                'Computer Architecture',
-                'Software Engineering',
-                'Image Processing',
-                'Cyber-Aerial Computing'
-              ].map((course, i) => (
+              {edu.currentEducation.plannedCourses.map((course, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, x: -10 }}
@@ -99,70 +106,53 @@ const EducationDetail = () => {
             {/* Projects & Research */}
             <h4 className="text-primary text-lg font-light mb-6 tracking-wide uppercase">Academic Projects</h4>
             <div className="space-y-4">
-              <ProjectCard
-                title="A.R.A. (Adaptive Real-time Assistant)"
-                description="Leading a student team to build a privacy-first virtual assistant system with local inference capabilities. Combines computer vision, natural language processing, and event-driven architecture for healthcare applications."
-              />
-              <ProjectCard
-                title="Image Denoising Research"
-                description="Implemented and compared multiple denoising algorithms including DnCNN, achieving 39.13 PSNR on test datasets. Explored traditional and deep learning approaches for noise reduction in medical imaging."
-              />
-              <ProjectCard
-                title="Compiler Development"
-                description="Built a custom lexer and parser for a programming language implementation, deepening understanding of language design, tokenization, and abstract syntax tree construction."
-              />
+              {edu.currentEducation.projects.map((project, i) => (
+                <ProjectCard
+                  key={i}
+                  title={project.title}
+                  description={project.description}
+                />
+              ))}
             </div>
           </div>
         </Section>
 
         {/* New Mexico Military Institute */}
-        <Section title="NEW MEXICO MILITARY INSTITUTE">
+        <Section title={edu.previousEducation.institution.toUpperCase()}>
           <div className="luxury-card p-8">
             {/* University Header */}
             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 pb-6 border-b border-border/30">
               <div>
-                <h3 className="text-2xl font-light text-secondary mb-2">Associate Degree</h3>
-                <p className="text-textMuted font-light">Roswell, New Mexico</p>
+                <h3 className="text-2xl font-light text-secondary mb-2">{edu.previousEducation.degree}</h3>
+                <p className="text-textMuted font-light">{edu.previousEducation.location}</p>
               </div>
               <div className="text-textSecondary font-light mt-2 md:mt-0">
-                2021 - 2022
+                {edu.previousEducation.period}
               </div>
             </div>
 
             {/* Overview */}
             <p className="text-textSecondary font-light leading-relaxed mb-8">
-              Completed foundational computer science education at the New Mexico Military Institute, a rigorous military junior college environment that instilled discipline, leadership, and time management skills essential for balancing academic excellence with demanding schedules.
+              {edu.previousEducation.overview}
             </p>
 
             {/* Military College Experience */}
             <h4 className="text-secondary text-lg font-light mb-6 tracking-wide uppercase">Military College Experience</h4>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
-              <div className="luxury-card p-6 bg-surface/50">
-                <h5 className="text-secondary text-sm font-light mb-3 tracking-wide uppercase">Academic Rigor</h5>
-                <p className="text-textSecondary text-sm font-light leading-relaxed">
-                  Balanced intensive computer science coursework with military training, developing strong time management and prioritization skills under strict schedules and high expectations.
-                </p>
-              </div>
-              <div className="luxury-card p-6 bg-surface/50">
-                <h5 className="text-secondary text-sm font-light mb-3 tracking-wide uppercase">Leadership Development</h5>
-                <p className="text-textSecondary text-sm font-light leading-relaxed">
-                  Cultivated leadership abilities through military structure, learning to work effectively in teams, communicate clearly under pressure, and maintain composure in challenging situations.
-                </p>
-              </div>
+              {edu.previousEducation.experience.map((exp, i) => (
+                <div key={i} className="luxury-card p-6 bg-surface/50">
+                  <h5 className="text-secondary text-sm font-light mb-3 tracking-wide uppercase">{exp.title}</h5>
+                  <p className="text-textSecondary text-sm font-light leading-relaxed">
+                    {exp.description}
+                  </p>
+                </div>
+              ))}
             </div>
 
             {/* Foundation Courses */}
             <h4 className="text-secondary text-lg font-light mb-6 tracking-wide uppercase">Core Foundation</h4>
             <div className="flex flex-wrap gap-3">
-              {[
-                'Introduction to Programming',
-                'Data Structures',
-                'Discrete Mathematics',
-                'Calculus I & II',
-                'Physics',
-                'Computer Organization',
-                'Algorithm Analysis'
-              ].map((course, i) => (
+              {edu.previousEducation.foundationCourses.map((course, i) => (
                 <motion.span
                   key={i}
                   whileHover={{ scale: 1.05, y: -2 }}
@@ -179,33 +169,12 @@ const EducationDetail = () => {
         <Section title="THE ORIGIN STORY">
           <div className="luxury-card p-8">
             <div className="space-y-6 text-textSecondary font-light leading-relaxed">
-              <div>
-                <h4 className="text-primary font-light text-lg mb-3">First Encounter (2015)</h4>
-                <p>
-                  The journey began in Eunice, New Mexico, during a summer visit with my brother in 2015. He introduced me to HTML, sparking the first lines of code that would eventually shape my career path. Those early summer days of learning web fundamentals planted the seed for a lifelong passion.
-                </p>
-              </div>
-              
-              <div>
-                <h4 className="text-primary font-light text-lg mb-3">High School Years (2020-2021)</h4>
-                <p>
-                  Throughout my time at Lake Arthur High School in my New Mexico hometown, I continued coding intermittently. During my senior year, the interest crystallized into a definitive decision: pursue Computer Science at the college level and make it a career.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="text-primary font-light text-lg mb-3">Transfer Challenges</h4>
-                <p>
-                  The transition from NMMI to Texas Tech in Spring 2023 came with an unexpected setback—only ~30 of my 65 credits transferred. While initially disheartening, this challenge became a turning point. Instead of slowing down, it motivated an intensified focus on computer science fundamentals and advanced topics.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="text-primary font-light text-lg mb-3">Exponential Growth</h4>
-                <p>
-                  At Texas Tech, my appetite for computer science has grown exponentially. Working day and night while balancing coursework and a part-time job, I've deepened my expertise in image processing, computer vision, and low-level systems engineering. The demanding schedule has only sharpened my focus and determination.
-                </p>
-              </div>
+              {edu.originStory.map((story, i) => (
+                <div key={i}>
+                  <h4 className="text-primary font-light text-lg mb-3">{story.title}</h4>
+                  <p>{story.description}</p>
+                </div>
+              ))}
             </div>
           </div>
         </Section>
@@ -213,21 +182,25 @@ const EducationDetail = () => {
         {/* Beyond Academics */}
         <Section title="BEYOND THE CLASSROOM">
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="luxury-card p-8">
-              <div className="text-3xl mb-4">🚀</div>
-              <h3 className="text-primary text-lg font-light mb-4 tracking-wide uppercase">ZIATECHNICA Startup</h3>
-              <p className="text-textSecondary font-light leading-relaxed">
-                Assembled and lead a team of students to build ZIATECHNICA, our startup focused on privacy-first AI systems. Our flagship project A.R.A. (Adaptive Real-time Assistant) combines computer vision, NLP, and local inference for healthcare applications—translating academic knowledge into real-world impact.
-              </p>
-            </div>
-
-            <div className="luxury-card p-8">
-              <div className="text-3xl mb-4">🎸</div>
-              <h3 className="text-secondary text-lg font-light mb-4 tracking-wide uppercase">Septilith (Deathcore Band)</h3>
-              <p className="text-textSecondary font-light leading-relaxed">
-                Despite the demanding schedule of work, classes, and entrepreneurship, music remains a vital creative outlet. As a guitarist for the deathcore band Septilith, I channel technical precision and creativity in a completely different domain—proving that passion transcends boundaries.
-              </p>
-            </div>
+            {edu.beyondClassroom.map((activity, i) => (
+              <div key={i} className="luxury-card p-8">
+                <div className="text-3xl mb-4">{activity.icon}</div>
+                <h3 className={`${i === 0 ? 'text-primary' : 'text-secondary'} text-lg font-light mb-4 tracking-wide uppercase`}>
+                  {activity.title}
+                </h3>
+                <p className="text-textSecondary font-light leading-relaxed">
+                  {activity.title === 'ZIATECHNICA Startup' ? (
+                    <>
+                      Assembled and lead a team of students to build <a href="https://www.ziatechnica.org/" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-secondary transition-colors">ZIATECHNICA</a>, our startup focused on privacy-first AI systems. Our flagship project A.R.A. (Adaptive Real-time Assistant) combines computer vision, NLP, and local inference for healthcare applications—translating academic knowledge into real-world impact.
+                    </>
+                  ) : activity.title === 'Septilith (Deathcore Band)' ? (
+                    <>
+                      Despite the demanding schedule of work, classes, and entrepreneurship, music remains a vital creative outlet. As a guitarist for the deathcore band <a href="https://open.spotify.com/artist/3VaMLcFxbNo7uddutF36eD?si=KerXDExbT3aAYkJzUyloAw" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-secondary transition-colors">Septilith</a>, I channel technical precision and creativity in a completely different domain—proving that passion transcends boundaries.
+                    </>
+                  ) : activity.description}
+                </p>
+              </div>
+            ))}
           </div>
         </Section>
       </div>

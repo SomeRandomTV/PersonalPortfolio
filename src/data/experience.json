@@ -1,0 +1,122 @@
+{
+  "position": "AI/ML Tech Researcher",
+  "company": "AndGo Inc.",
+  "location": "Tokyo, Japan (On-Site)",
+  "period": "June 2024 - August 2024",
+  "overview": [
+    "Contributed to AI/ML research and development for AndGo Inc.'s R&D team, focusing on evaluating and prototyping advanced models for potential integration. Collaborated with international team members across multiple time zones to support AI capability deployment.",
+    "Note: Details are intentionally generalized."
+  ],
+  "responsibilities": [
+    {
+      "icon": "🔬",
+      "title": "Research & Evaluation",
+      "description": "Reviewed and assessed contemporary AI/ML models from academic and open-source sources. Considered feasibility and readiness for integration into internal systems."
+    },
+    {
+      "icon": "⚡",
+      "title": "Rapid Prototyping",
+      "description": "Developed proof-of-concept implementations to explore model capabilities in practical scenarios. Iterated on approaches to meet project requirements."
+    },
+    {
+      "icon": "🤝",
+      "title": "Cross-Team Collaboration",
+      "description": "Worked with engineering and product teams to align research with organizational goals. Communicated findings to stakeholders with varying technical backgrounds."
+    },
+    {
+      "icon": "📊",
+      "title": "Documentation & Knowledge Transfer",
+      "description": "Documented evaluation processes and implementation decisions to support smooth handoffs to engineering teams."
+    }
+  ],
+  "technologies": [
+    "Industry-standard AI/ML frameworks",
+    "Python ecosystem tools",
+    "Version control systems",
+    "Containerization technologies"
+  ],
+  "achievements": [
+    {
+      "metric": "",
+      "description": "Contributed to the evaluation and prototyping of multiple AI models for potential integration."
+    },
+    {
+      "metric": "",
+      "description": "Supported the development of internal processes to streamline research and engineering collaboration."
+    },
+    {
+      "metric": "",
+      "description": "Effectively coordinated with team members across different locations and time zones."
+    }
+  ],
+  "skillsDeveloped": [
+    {
+      "icon": "🧠",
+      "title": "AI/ML Research",
+      "skills": [
+        "Literature review",
+        "Model evaluation",
+        "Experimentation"
+      ]
+    },
+    {
+      "icon": "💻",
+      "title": "Engineering Practices",
+      "skills": [
+        "Prototyping workflows",
+        "Code quality standards",
+        "Documentation for handoffs",
+        "Containerized deployments"
+      ]
+    },
+    {
+      "icon": "🌐",
+      "title": "Soft Skills",
+      "skills": [
+        "Remote collaboration",
+        "Technical communication",
+        "Stakeholder presentations",
+        "Time management"
+      ]
+    }
+  ],
+  "professionalGrowth": [
+    {
+      "title": "International Exposure",
+      "description": "Gained experience collaborating with a diverse, international team and adapting to different communication styles and workflows."
+    },
+    {
+      "title": "Research-to-Production Pipeline",
+      "description": "Learned to bridge the gap between academic research and practical engineering, focusing on real-world applicability and integration."
+    },
+    {
+      "title": "Rapid Learning & Adaptation",
+      "description": "Adapted quickly to new concepts, frameworks, and methodologies in a fast-paced research environment."
+    },
+    {
+      "title": "Career Impact",
+      "description": "This experience reinforced my interest in AI/ML engineering and provided valuable perspective on evaluating research for real-world use."
+    },
+    {
+      "title": "Life Impact",
+      "description": "Click to read more about my time in Japan & Korea."
+    }
+  ]
+  ,
+  "images": [
+    {
+      "src": "/experience/Japan2024/tokyo-big-sight.jpg",
+      "alt": "Tokyo Big Sight building",
+      "caption": "Tokyo — Big Sight"
+    },
+    {
+      "src": "/experience/Korea2024/view-from-seoul-tower.jpg",
+      "alt": "View from Seoul Tower",
+      "caption": "Seoul — View from N Seoul Tower"
+    }
+  ],
+  "lifeImpact": {
+    "href": "/life-in-asia",
+    "text": "Life Impact — My time in Japan & Korea"
+  }
+}

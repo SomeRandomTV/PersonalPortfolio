@@ -1,0 +1,16 @@
+{
+  "overview": "A.R.A. (Adaptive Real-time Assistant) is an experimental system at the intersection of intelligence, privacy, and adaptability. Its true purpose is best experienced, not described. Built on a foundation of modularity and local-first design, A.R.A. explores new frontiers in what it means to assist—while keeping its secrets close.\nNOTE: A.R.A. is in its earliest stages, with ongoing research and development. Technologies and architecture are under wraps until launch.",
+  "problem": "Existing solutions for support and monitoring often compromise privacy, create extra work, or fail to deliver meaningful real-time assistance. The world needs a new approach—one that puts people first, and keeps secrets safe.",
+  "motivation": "To create a new kind of assistant—one that respects privacy, empowers users, and redefines what intelligent support can be. The details? You'll have to wait and see.",
+  "keyFeatures": [
+    "Privacy-first by design",
+    "Real-time, adaptive assistance",
+    "Surprising capabilities—details coming soon"
+  ],
+  "challenges": [
+    {
+      "challenge": "Building something new without revealing too much.",
+      "solution": "Stay tuned."
+    }
+  ]
+}
