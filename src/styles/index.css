@@ -249,11 +249,9 @@ pre, code {
   .animated-gradient {
     background: linear-gradient(
       90deg,
-      #a8a8a8,
       #c9a961,
-      #d4af37,
-      #c9a961,
-      #a8a8a8
+      #e8d5a8,
+      #c9a961
     );
     background-size: 200% auto;
     -webkit-background-clip: text;
