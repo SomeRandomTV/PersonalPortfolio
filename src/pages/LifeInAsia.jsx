@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import experienceData from '../data/experience.json'
 import KoiLayer from '../components/KoiLayer'
+import { caption } from 'framer-motion/client'
 
 const LifeInAsia = () => {
   const navigate = useNavigate()
@@ -27,21 +28,25 @@ const LifeInAsia = () => {
     {
       date: '2024-06-07 — 2024-06-14',
       place: 'Seoul, South Korea',
-      note: "To start us off, thank you to CRCC Asia for guiding me through such a great opportunity and the friendships I made along the way. While in Korea, my group stayed around Myeongdong / Euljiro. It was a massive culture shock at first — the streets, the lights, the smells — and the first thing we did after arriving was find some food. I still remember meeting my roommate: I said, ‘Yo, what's up I'm Alejandro’ and after a short silence I asked, ‘You like Star Wars?’ He said yes, and we bonded immediately.\n\nMarkets became a central part of my days — from Cheonggyecheon at night to the market alleys of Insadong. I tried everything from sweet corn dogs to live octopus; the food and the energy of the stalls are unforgettable. Myeongdong felt alive 24/7 — always crowded but in a polite way; it's where I met locals who became lasting friends. And the views from Seoul Tower were breathtaking — seeing the city spread beneath you with mountains on the horizon felt like a reset.",
+      note: "To start us off, thank you to CRCC Asia for guiding me through such a great opportunity and the friendships I made along the way. While in Korea, my group stayed around Myeongdong / Euljiro. It was a massive culture shock at first — the streets, the lights, the smells — and the first thing we did after arriving was find some food. I still remember meeting my roommate: I said, ‘Yo, what's up I'm Alejandro’ and he replied with his name. After a short silence I asked, ‘You like Star Wars?’ He said yes, and the rest is history.\n\nMarkets became a central part of my days — from Cheonggyecheon at night to the market alleys of Insadong. I tried everything from sweet corn dogs to live octopus; the food and the energy of the stalls are unforgettable. Myeongdong felt alive 24/7 — always crowded but in a polite way; it's where I met locals who became lasting friends. And the views from Seoul Tower were breathtaking — seeing the city spread beneath you with mountains on the horizon felt like a reset.",
       img: '/experience/Korea2024/Cheonggyecheon-Stream-Night.jpg',
       imgAlt: 'Cheonggyecheon stream at night'
     },
     {
       date: '2024-06-09',
       place: 'Insadong, Seoul',
-      note: 'Insadong was a maze of traditional shops and market stalls — a place to taste street snacks, pick up handcrafted souvenirs, and soak in the slower side of Seoul away from the neon bustle.',
+      note: 'Insadong was a maze of traditional shops and market stalls — a place to taste street snacks, pick up handcrafted souvenirs, and soak in the slower side of Seoul away from the neon bustle. The markets here reminded me of Ruidoso N.M. for some odd reason. The stores and the vendors + the atmosphere made it feel like good ol Ruidoso N.M.',
       img: '/experience/Korea2024/Insadong.jpg',
       imgAlt: 'Insadong market stalls'
     },
     {
       date: '2024-06-10',
       place: 'Myeongdong Shopping Street',
-      note: 'The shopping center of Myeongdong is alive 24/7 — a polite, crowded maze of stalls, vendors, and neon where I met locals and made friends who lasted a lifetime.',
+      note: 'The shopping center of Myeongdong is alive 24/7 — a polite, crowded maze of stalls, vendors, and neon where I met locals and made friends who lasted a lifetime. This, basically outdoor mall, had a variety of shops, mostly clothes, food stands/trucks, and one vape store which was funny. I remember having a fruit kebab that had like a crystal glaze around them and MAN it was good. \n\nFunny to note, We walked past a restaurant called "Lotteria" and immediately thought of the game I play (Lotería), but sadly no it was fast food place. (it was still good)',
+      gallery: [
+        {src: '/experience/Korea2024/Myeongdong-Shopping-Street.jpg', alt: 'Nighttime Myeongdong Street Markets', caption: 'Myeongdong — Nighttime shopping and street food'},
+        {src: '/experience/Korea2024/Lotteria.jpeg', alt: "Lotteria Restaurant", caption: "Lotteria Restaurant"}
+      ],
       img: '/experience/Korea2024/Myeongdong-Shopping-Street.jpg',
       imgAlt: 'Myeongdong shopping street'
     },
@@ -55,17 +60,18 @@ const LifeInAsia = () => {
     {
       date: '2024-06-12',
       place: 'View from Seoul Tower',
-      note: 'The view from Seoul Tower was breathtakingm seeing the city spread out with mountains on the horizon felt like a reset and a moment to breathe. Aside from all the people there, once I tuned them out and it was just me and the view, everything, everything fell into place and I felt at peace. A view I hope to see again.',
+      note: 'The view from Seoul Tower was breathtaking — seeing the city spread out with mountains on the horizon felt like a reset and a moment to breathe. Aside from all the people there, once I tuned them out and it was just me and the view, everything, everything fell into place and I felt at peace but then I remembered the hike down. Nonetheless it\'s view I hope to see again and soon.',
       img: '/experience/Korea2024/view-from-seoul-tower.jpg',
       imgAlt: 'View from N Seoul Tower'
     },
     {
       date: '2024-06-16',
       place: 'Osaka, Japan',
-      note: 'Dotonbori nights, neon signs, and iconic street food — Osaka was lively, welcoming, and delicious.',
+      note: 'After landing in Osaka, Japan, we checked into our hotel, "hotel it." and it was different. It was fancy, it was comfortable. We stayed in Osaka for three days. We did a matcha tea ceremony dressed in kimonos. We got to pour our own matcha tea, I remember there beinga whole process to pour the water into my cup. All that was going through my mind was "Don\'t f*ck up, don\'t f*ck up." I didn\'t. \n\nOf course, it is not complete with Dotonbori, the Iconic Entertainment District. Another outdoor mall type place, jewelery, food, clothes, shoes, you name it. One thing about the food in Osaka, I remember someone saying "Tenka no Daidokoro" about Osaka. It means "Nations Kitchen", all I can say is yep, totally earned that name. Oh and the crowds, SO many people.',
       gallery: [
         { src: '/experience/Japan2024/doto.jpg', alt: 'Dotonbori at night', caption: 'Dōtonbori — neon and street food' },
-        { src: '/experience/Japan2024/view-from-hotel-IT-osaka.jpg', alt: 'View from hotel in Osaka', caption: 'View from hotel in IT Osaka' }
+        { src: '/experience/Japan2024/view-from-hotel-IT-osaka.jpg', alt: 'View from hotel in Osaka', caption: 'View from hotel in IT Osaka' },
+        { src: '/experience/Japan2024/me-kimono.jpg', alt: 'Me in my Kimono', caption: "'Me in my Kimono bfore the Matcha Tea Ceremony"}
       ],
       img: '/experience/Japan2024/doto.jpg',
       imgAlt: 'Dotonbori street'
@@ -73,11 +79,13 @@ const LifeInAsia = () => {
     {
       date: '2024-06-17',
       place: 'Kyoto, Japan',
-      note: 'Temples, torii gates, and the quieter, traditional side of Japan — Kyoto felt timeless and reflective.',
+      note: 'Temples, torii gates, and the quieter, traditional side of Japan — Kyoto felt timeless and reflective. Here we got to see the Geiko, in all their glory (I didn\'t take their picture) and walk through all the Torii gates. The weather, location, the greenery. We were supposed to be there as a group but my roommate and I found a little trail and went hiking. We barely made it back on time.',
       gallery: [
         { src: '/experience/Japan2024/golden-temple-Kinkaku-ji-kyoto.jpg', alt: 'Kinkaku-ji Golden Temple', caption: 'Kinkaku-ji — Golden Temple' },
         { src: '/experience/Japan2024/torii-gates-kyoto.jpg', alt: 'Torii gates, Kyoto', caption: 'Torii gates pathway' },
-        { src: '/experience/Japan2024/torii-gates-kyoto-2.jpg', alt: 'Torii gates, Kyoto (2)', caption: 'Torii gates — perspective' }
+        { src: '/experience/Japan2024/torii-gates-kyoto-2.jpg', alt: 'Torii gates, Kyoto (2)', caption: 'Torii gates — perspective' },
+        { src: '/experience/Japan2024/green-as-fuck.jpg', alt: 'Greenest green I ever did see', caption: 'Beautiflul greenery on this gardern'},
+        { src: '/experience/Japan2024/bamboo-forrest.jpg', alt: 'Bamboo Forrest', caption: 'Tall bamboo enclose us'}
       ],
       img: '/experience/Japan2024/golden-temple-Kinkaku-ji-kyoto.jpg',
       imgAlt: 'Kinkaku-ji Golden Temple, Kyoto'
@@ -318,7 +326,6 @@ const LifeInAsia = () => {
                         </div>
                         <div className="text-textSecondary font-light leading-relaxed">
                           <p>{item.note}</p>
-                          <p className="mt-4">More details can go here — you can edit this text later.</p>
                         </div>
                       </div>
                     </div>

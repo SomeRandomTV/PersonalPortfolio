@@ -86,7 +86,7 @@ const LifeInAsia = () => {
 
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
           <h1 className="text-4xl font-light text-textPrimary mb-4">Life In Asia — Korea & Japan</h1>
-          <p className="text-textSecondary font-light leading-relaxed">A short timeline and some reflections from my trip while working with AndGo.</p>
+          <p className="text-textSecondary font-light leading-relaxed">A short timeline and some reflections from my trip while visiting Southeast Asia and working with AndGo.</p>
         </motion.div>
 
         <div className="space-y-8">
@@ -181,10 +181,6 @@ const LifeInAsia = () => {
                             <div className="text-textSecondary text-sm mb-4">{item.date}</div>
                           </div>
                           <button onClick={() => setExpandedIndex(null)} className="text-textSecondary ml-4">Close</button>
-                        </div>
-                        <div className="text-textSecondary font-light leading-relaxed">
-                          <p>{item.note}</p>
-                          <p className="mt-4">More details can go here — you can edit this text later.</p>
                         </div>
                       </div>
                     </div>
