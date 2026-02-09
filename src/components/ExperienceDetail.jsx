@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import experienceData from '../data/experience.json'
 import KoiLayer from './KoiLayer'
+import { getAssetPath } from '../utils/assetPath'
 
 const ExperienceDetail = () => {
   const navigate = useNavigate()
@@ -73,7 +74,7 @@ const ExperienceDetail = () => {
                   {exp.images.map((img, idx) => (
                     <motion.div key={idx} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="w-full" data-koi-occluder>
                       <img
-                        src={img.src}
+                        src={getAssetPath(img.src)}
                         alt={img.alt || ''}
                         loading="lazy"
                         className="w-full h-40 md:h-56 object-cover rounded"

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import 'katex/dist/katex.min.css';
 import { InlineMath } from 'react-katex';
+import { getAssetPath } from '../utils/assetPath'
 
 const howItWorksImages = [
   // Example: { src: '/template_card_recognition/original.png', label: 'Original Image' },
@@ -199,7 +200,7 @@ const TemplateCardRecognitionDetail = () => {
             ) : (
               howItWorksImages.map((img, i) => (
                 <div key={i} className="text-center">
-                  <img src={img.src} alt={img.label} className="w-full rounded border border-border mb-2" />
+                  <img src={getAssetPath(img.src)} alt={img.label} className="w-full rounded border border-border mb-2" />
                   <div className="text-xs text-textMuted font-mono">{img.label}</div>
                 </div>
               ))

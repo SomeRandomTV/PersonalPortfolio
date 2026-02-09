@@ -4,6 +4,7 @@ import { InlineMath } from 'react-katex';
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import { getAssetPath } from '../utils/assetPath'
 
 
 // List of images to use, with descriptive labels
@@ -129,7 +130,7 @@ const FrequencyFilteringDetail = () => {
           <div className="grid md:grid-cols-3 gap-6 mb-8">
               {howItWorksImages.map((img, i) => (
               <div key={i} className="text-center">
-                <img src={img.src} alt={img.label} className="w-full rounded border border-border mb-2" />
+                <img src={getAssetPath(img.src)} alt={img.label} className="w-full rounded border border-border mb-2" />
                 <div className="text-xs text-textMuted font-mono">{img.label}</div>
               </div>
             ))}

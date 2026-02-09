@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import experienceData from '../data/experience.json'
 import KoiLayer from '../components/KoiLayer'
+import { getAssetPath } from '../utils/assetPath'
 
 const LifeInAsia = () => {
   const navigate = useNavigate()
@@ -228,7 +229,7 @@ const LifeInAsia = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6">
                     <div className={i % 2 === 1 ? 'md:order-2' : ''}>
                       <motion.img
-                        src={item.img}
+                        src={getAssetPath(item.img)}
                         alt={item.imgAlt || ''}
                         loading="lazy"
                         className="w-full h-44 md:h-56 object-cover rounded"
@@ -281,7 +282,7 @@ const LifeInAsia = () => {
                             return (
                               <div>
                                 <motion.img
-                                  src={main.src}
+                                  src={getAssetPath(main.src)}
                                   alt={main.alt || ''}
                                   className="w-full h-auto max-h-[75vh] object-contain rounded"
                                   layoutId={`timeline-${expandedIndex}-img-main`}
@@ -293,7 +294,7 @@ const LifeInAsia = () => {
                                       onClick={(e) => { e.stopPropagation(); setExpandedGalleryIndex(gi) }}
                                       className={`w-20 h-14 overflow-hidden rounded border ${gi === expandedGalleryIndex ? 'border-amber-400 ring-amber-200/40' : 'border-border/20'}`}
                                     >
-                                      <motion.img src={g.src} alt={g.alt || ''} loading="lazy" className="w-full h-full object-cover" whileHover={!reduceMotion ? { scale: 1.03 } : undefined} />
+                                      <motion.img src={getAssetPath(g.src)} alt={g.alt || ''} loading="lazy" className="w-full h-full object-cover" whileHover={!reduceMotion ? { scale: 1.03 } : undefined} />
                                     </button>
                                   ))}
                                 </div>
@@ -302,7 +303,7 @@ const LifeInAsia = () => {
                           })()
                         ) : (
                           item.img ? (
-                            <motion.img src={item.img} alt={item.imgAlt || ''} className="w-full h-auto max-h-[75vh] object-contain rounded" layoutId={`timeline-${expandedIndex}-img-main`} />
+                            <motion.img src={getAssetPath(item.img)} alt={item.imgAlt || ''} className="w-full h-auto max-h-[75vh] object-contain rounded" layoutId={`timeline-${expandedIndex}-img-main`} />
                           ) : (
                             <div className="w-full h-64 bg-border/10 flex items-center justify-center rounded text-textMuted">No image available</div>
                           )
@@ -335,7 +336,7 @@ const LifeInAsia = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {images.map((img, i) => (
                 <div key={i} data-koi-occluder className="luxury-card p-4">
-                  <motion.img src={img.src} alt={img.alt || ''} loading="lazy" className="w-full h-48 object-cover rounded" layoutId={`photo-${i}`} />
+                  <motion.img src={getAssetPath(img.src)} alt={img.alt || ''} loading="lazy" className="w-full h-48 object-cover rounded" layoutId={`photo-${i}`} />
                   {img.caption && <p className="text-textMuted text-sm mt-2">{img.caption}</p>}
                 </div>
               ))}
