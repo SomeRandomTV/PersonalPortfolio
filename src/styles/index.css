@@ -141,7 +141,7 @@ pre, code {
   
   /* Sophisticated Card Hover */
   .luxury-card {
-    background: rgba(20, 20, 20, 0.4);
+    background: rgba(20, 20, 20, 0.75);
     border: 1px solid rgba(201, 169, 97, 0.15);
     backdrop-filter: blur(10px);
     transition: all 0.4s ease;
@@ -207,6 +207,29 @@ pre, code {
     left: 0;
   }
   
+  /* Social Button with Gradient */
+  .social-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+  
+  .social-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(201, 169, 97, 0.15), rgba(232, 213, 168, 0.15));
+    transition: left 0.4s ease;
+    z-index: -1;
+  }
+  
+  .social-button:hover::before {
+    left: 0;
+  }
+  
   /* Section Title Styling */
   .section-title-luxury {
     font-size: 3rem;
@@ -249,11 +272,9 @@ pre, code {
   .animated-gradient {
     background: linear-gradient(
       90deg,
-      #a8a8a8,
       #c9a961,
-      #d4af37,
-      #c9a961,
-      #a8a8a8
+      #e8d5a8,
+      #c9a961
     );
     background-size: 200% auto;
     -webkit-background-clip: text;

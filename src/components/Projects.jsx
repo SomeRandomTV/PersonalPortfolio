@@ -80,7 +80,7 @@ const Projects = () => {
               className={`px-6 py-3 text-xs tracking-luxury-wide uppercase font-light transition-all duration-400 ${
                 activeFilter === filter
                   ? 'bg-transparent border border-primary text-primary gold-glow'
-                  : 'bg-transparent border border-border text-silver hover:border-primary hover:text-primary'
+                  : 'bg-transparent border border-border text-silver hover:bg-gradient-to-r hover:from-primary/10 hover:via-secondary/10 hover:to-primary/10 hover:border-primary hover:text-primary'
               }`}
             >
               {filter}

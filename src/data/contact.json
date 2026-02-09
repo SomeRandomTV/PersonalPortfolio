@@ -12,9 +12,9 @@
       "icon": "linkedin"
     },
     {
-      "name": "Instagram",
-      "url": "https://twitter.com/yourusername",
-      "icon": "twitter"
+      "name": "Download CV",
+      "url": "/resume/Alejandro-Rubio-CV.pdf",
+      "icon": "cv"
     }
   ],
   "message": "Open to collaboration on AI/ML and Computer Vision projects. Feel free to reach out for project discussions or opportunities."

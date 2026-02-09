@@ -31,10 +31,11 @@
       "Cyber-Aerial Computing",
       "Object-Oriented Programming"
     ],
-    "plannedCourses": [
+    "activeCourses": [
         "Concepts Of Operating Systems",
         "Concepts of Database Systems",
-        "Reinforcement Learning"
+        "Pattern Recognition",
+        "Programming Massively Parallel Processors"
     ],
     "projects": [
       {

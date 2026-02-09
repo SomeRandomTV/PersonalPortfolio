@@ -86,9 +86,9 @@ const EducationDetail = () => {
             </div>
 
             {/* Planned Courses */}
-            <h4 className="text-secondary text-lg font-light mb-2 tracking-wide uppercase">Planned Courses</h4>
+            <h4 className="text-secondary text-lg font-light mb-2 tracking-wide uppercase">Active Courses</h4>
             <div className="grid md:grid-cols-2 gap-4 mb-10">
-              {edu.currentEducation.plannedCourses.map((course, i) => (
+              {edu.currentEducation.activeCourses.map((course, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, x: -10 }}
@@ -103,17 +103,6 @@ const EducationDetail = () => {
               ))}
             </div>
 
-            {/* Projects & Research */}
-            <h4 className="text-primary text-lg font-light mb-6 tracking-wide uppercase">Academic Projects</h4>
-            <div className="space-y-4">
-              {edu.currentEducation.projects.map((project, i) => (
-                <ProjectCard
-                  key={i}
-                  title={project.title}
-                  description={project.description}
-                />
-              ))}
-            </div>
           </div>
         </Section>
 

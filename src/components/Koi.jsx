@@ -2,6 +2,13 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { motion, useMotionValue, useSpring, useAnimation } from 'framer-motion'
 import useKoiOcclusionManager from '../hooks/useKoiOcclusionManager'
 
+// Rotation mapping: scales based on wobble amplitude range
+const getMaxRotation = (wobbles) => {
+  const maxAmp = Math.max(...wobbles.map(w => w.amp))
+  // map amplitude 6-18 to rotation ±5-20 degrees
+  return 5 + (maxAmp - 6) * (15 / 12)
+}
+
 // Helpers
 const rand = (min, max) => Math.random() * (max - min) + min
 const pick = (arr) => arr[Math.floor(Math.random() * arr.length)]
@@ -119,9 +126,13 @@ const Koi = ({
   const x = useMotionValue(0)
   const yMotion = useMotionValue(0)
   const scaleY = useMotionValue(1)
+  const rotationAngle = useMotionValue(0)
 
   // breathing spring for smoothness
   const scaleYSpring = useSpring(scaleY, { stiffness: 60, damping: 12 })
+  
+  // smooth rotation spring
+  const rotationSpring = useSpring(rotationAngle, { stiffness: 40, damping: 10 })
 
   // compute start and end X in px, and compute baseY in px
   const [startX, setStartX] = useState(0)
@@ -159,11 +170,9 @@ const Koi = ({
 
     window.addEventListener('resize', onResize)
     window.addEventListener('orientationchange', onResize)
-    window.addEventListener('scroll', onResize)
     return () => {
       window.removeEventListener('resize', onResize)
       window.removeEventListener('orientationchange', onResize)
-      window.removeEventListener('scroll', onResize)
       if (resizeTimer) clearTimeout(resizeTimer)
     }
   }, [chosenDirection, scale, baseY, remountKey])
@@ -187,6 +196,11 @@ const Koi = ({
 
     const startTime = performance.now() + delayMs
 
+    // Track previous Y for velocity calculation
+    let prevY = 0
+    let prevTime = 0
+    const maxRotation = getMaxRotation(wobble)
+
     function frame(now) {
       if (!mounted) return
 
@@ -205,7 +219,25 @@ const Koi = ({
       }
 
       const baseYPx = (baseY !== null ? (baseY / 100) * (window.innerHeight || 768) : ((window.innerHeight || 768) * 0.45)) - halfH
-      yMotion.set(baseYPx + wob)
+      const currentY = baseYPx + wob
+      yMotion.set(currentY)
+
+      // Calculate vertical velocity for rotation
+      let velocityY = 0
+      if (prevTime > 0) {
+        const timeDelta = (now - prevTime) / 1000 // convert to seconds
+        if (timeDelta > 0) {
+          velocityY = (currentY - prevY) / timeDelta
+        }
+      }
+      prevY = currentY
+      prevTime = now
+
+      // Derive rotation from velocity: normalize velocity to rotation range
+      // Negative velocity (moving up) = negative rotation; positive (moving down) = positive rotation
+      const velocityNorm = Math.max(-100, Math.min(100, velocityY)) / 100
+      const targetRotation = velocityNorm * maxRotation
+      rotationAngle.set(targetRotation)
 
       // gentle breathing
       const breath = 1 + Math.sin(s * 1.6 + instanceSeed) * 0.02
@@ -221,7 +253,7 @@ const Koi = ({
       if (raf) cancelAnimationFrame(raf)
     }
   // intentionally include start/end/baseY/remountKey so loop restarts when layout changes
-  }, [startX, endX, baseY, duration, delay, wobble, scale, chosenDirection, remountKey])
+  }, [startX, endX, baseY, duration, delay, scale, chosenDirection, remountKey])
 
   // inline style for container: translateX via motion value and translateY via yMotion
   return (
@@ -243,7 +275,7 @@ const Koi = ({
 
       <motion.g
         ref={visualRef}
-        style={{ transformOrigin: '50% 50%', scaleY: scaleYSpring }}
+        style={{ transformOrigin: '50% 50%', scaleY: scaleYSpring, rotate: rotationSpring }}
         transform={flipped ? `scale(-1,1) translate(-160,0)` : undefined}
       >
         {/* Tail group animated independently */}
