@@ -170,11 +170,9 @@ const Koi = ({
 
     window.addEventListener('resize', onResize)
     window.addEventListener('orientationchange', onResize)
-    window.addEventListener('scroll', onResize)
     return () => {
       window.removeEventListener('resize', onResize)
       window.removeEventListener('orientationchange', onResize)
-      window.removeEventListener('scroll', onResize)
       if (resizeTimer) clearTimeout(resizeTimer)
     }
   }, [chosenDirection, scale, baseY, remountKey])
@@ -255,7 +253,7 @@ const Koi = ({
       if (raf) cancelAnimationFrame(raf)
     }
   // intentionally include start/end/baseY/remountKey so loop restarts when layout changes
-  }, [startX, endX, baseY, duration, delay, wobble, scale, chosenDirection, remountKey])
+  }, [startX, endX, baseY, duration, delay, scale, chosenDirection, remountKey])
 
   // inline style for container: translateX via motion value and translateY via yMotion
   return (
