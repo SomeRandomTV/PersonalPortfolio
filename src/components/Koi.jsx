@@ -184,6 +184,8 @@ const Koi = ({
     const localEnd = startX === 0 && endX === 0 ? (chosenDirection === 'left-to-right' ? (window.innerWidth || 1024) + 160 * (scale || 1) : -160 * (scale || 1)) : endX
 
     const startTime = performance.now() + delayMs
+    // Capture viewport height at start to avoid jumps on scroll
+    const cachedVH = window.innerHeight || 768
 
     function frame(now) {
       if (!mounted) return
@@ -202,7 +204,7 @@ const Koi = ({
         wob += Math.sin(s * w.freq * 2 * Math.PI + w.phase + instanceSeed) * w.amp
       }
 
-      const baseYPx = (baseY !== null ? (baseY / 100) * (window.innerHeight || 768) : ((window.innerHeight || 768) * 0.45)) - halfH
+      const baseYPx = (baseY !== null ? (baseY / 100) * cachedVH : (cachedVH * 0.45)) - halfH
       yMotion.set(baseYPx + wob)
 
       // gentle breathing
@@ -219,7 +221,7 @@ const Koi = ({
       if (raf) cancelAnimationFrame(raf)
     }
   // intentionally include start/end/baseY/remountKey so loop restarts when layout changes
-  }, [startX, endX, baseY, duration, delay, scale, chosenDirection, remountKey])
+  }, [startX, endX, baseY, duration, delay, scale, chosenDirection])
 
   // inline style for container: translateX via motion value and translateY via yMotion
   return (
